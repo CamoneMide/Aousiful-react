@@ -2,6 +2,12 @@ import React from "react";
 import { showcaseSlides } from "../constants";
 
 const HomeSection = ({ currentIndex }) => {
+  const [searchTabActive, setSearchTabActive] = React.useState(false);
+
+  function handleTabActiveToggle() {
+    setSearchTabActive(!searchTabActive);
+  }
+
   return (
     <>
       <section className="px-5 lg:px-10 lg:py-[60px] py-10" id="home">
@@ -86,123 +92,142 @@ const HomeSection = ({ currentIndex }) => {
             <div className="flex flex-row justify-start interF mb-[10px]">
               <button
                 type="button"
-                className="px-[26px] py-[8px] bg-[#E4F0DB] text-[#369536] text-[16px] mx-[12px] rounded-[25px] font-[500]"
+                className={`px-[26px] py-[8px] text-[#369536] text-[16px] mx-[12px] rounded-[25px] navTrans font-[500] ${
+                  searchTabActive
+                    ? "bg-[trannsparent]"
+                    : "bg-[#E4F0DB] cursor-none"
+                }`}
+                onClick={handleTabActiveToggle}
               >
                 House
               </button>
               <button
                 type="button"
-                className="px-[26px] py-[8px] text-[#369536] text-[16px] mx-[12px] rounded-[25px] font-[500]"
+                className={`px-[26px] py-[8px] text-[#369536] text-[16px] mx-[12px] navTrans rounded-[25px] font-[500] ${
+                  searchTabActive
+                    ? "bg-[#E4F0DB] cursor-none"
+                    : "bg-[trannsparent]"
+                }`}
+                onClick={handleTabActiveToggle}
               >
                 Service Apartment
               </button>
             </div>
-            <div className="w-[80%] px-[38px] py-[20px] hsSearch rounded-[30px] flex flex-row justify-between items-center">
-              <div className="flex gap-[40px]">
-                <div className="flex flex-col gap-[17px] border-r-[#000000] border-r-[1px] pr-[40px]">
-                  <label
-                    className="text-[14px] lg:text-[16px] font-[700] text-[#969191CC]"
-                    htmlFor="favLocation"
-                  >
-                    Location
-                  </label>
-                  <div className="relative flex gap-[17px] flex-row items-center">
-                    <div>
-                      <img
-                        src="/src/assets/icons/locationIcon.png"
-                        alt="locationIcon"
-                      />
-                    </div>
-                    <select
-                      name="favLocation"
-                      id="favLocation"
-                      defaultValue=""
-                      required
-                      className="bg-[transparent] text-[#6F7B6ED6] text-[18px] lg:text-[20px] font-[700] outline-none border-0 pr-[20px]"
-                    >
-                      <option value="la">LA, USA</option>
-                      <option value="la">LA, USA</option>
-                      <option value="la">LA, USA</option>
-                      <option value="la">LA, USA</option>
-                      <option value="la">LA, USA</option>
-                    </select>
-                    <div className="absolute right-0 bottom-0 text-[#6F7B6EF2] text-[28px] flex pointer-events-none bg-[#eff5e5]">
-                      <i className="bx bx-chevron-down"></i>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-[17px] border-r-[#000000] border-r-[1px] pr-[40px]">
-                  <label
-                    className="text-[14px] lg:text-[16px] font-[700] text-[#969191CC]"
-                    htmlFor="favType"
-                  >
-                    Type
-                  </label>
-                  <div className="relative flex gap-[17px] flex-row items-center">
-                    <div>
-                      <img
-                        src="/src/assets/icons/houseIcon.png"
-                        alt="locationIcon"
-                      />
-                    </div>
-                    <select
-                      name="favType"
-                      id="favType"
-                      defaultValue=""
-                      required
-                      className="bg-[transparent] text-[#6F7B6ED6] text-[18px] lg:text-[20px] font-[700] outline-none border-0 pr-[20px]"
-                    >
-                      <option value="duplex">Duplex</option>
-                      <option value="duplex">Duplex</option>
-                      <option value="duplex">Duplex</option>
-                      <option value="duplex">Duplex</option>
-                      <option value="duplex">Duplex</option>
-                    </select>
-                    <div className="absolute right-0 bottom-0 text-[#6F7B6EF2] text-[28px] flex pointer-events-none bg-[#eff5e5]">
-                      <i className="bx bx-chevron-down"></i>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-[17px]">
-                  <label
-                    className="text-[14px] lg:text-[16px] font-[700] text-[#969191CC]"
-                    htmlFor="favPrice"
-                  >
-                    Price Range
-                  </label>
-                  <div className="relative flex gap-[17px] flex-row items-center">
-                    <div>
-                      <img
-                        src="/src/assets/icons/moneyIcon.png"
-                        alt="locationIcon"
-                      />
-                    </div>
-                    <select
-                      name="favPrice"
-                      id="favPrice"
-                      defaultValue=""
-                      required
-                      className="bg-[transparent] text-[#6F7B6ED6] text-[18px] lg:text-[20px] font-[700] outline-none border-0 pr-[20px]"
-                    >
-                      <option value="price">$30,000-$120,000</option>
-                      <option value="price">$30,000-$120,000</option>
-                      <option value="price">$30,000-$120,000</option>
-                      <option value="price">$30,000-$120,000</option>
-                      <option value="price">$30,000-$120,000</option>
-                    </select>
-                    <div className="absolute right-0 bottom-0 text-[#6F7B6EF2] text-[28px] flex pointer-events-none bg-[#e8ebd6] backdrop-blur-lg">
-                      <i className="bx bx-chevron-down"></i>
-                    </div>
-                  </div>
+            {searchTabActive ? (
+              <div className="w-[80%] px-[38px] py-[20px] hsSearch rounded-[30px] flex flex-row justify-between items-center">
+                <div className="flex gap-[40px]">Not Available</div>
+                <div className="text-[#FDFDF3E5] bg-[#369536] rounded-full flex p-[15px] text-[34px]">
+                  <i className="bx bx-search"></i>
                 </div>
               </div>
+            ) : (
+              <div className="w-[80%] px-[38px] py-[20px] hsSearch rounded-[30px] flex flex-row justify-between items-center">
+                <div className="flex gap-[40px]">
+                  <div className="flex flex-col gap-[17px] border-r-[#000000] border-r-[1px] pr-[40px]">
+                    <label
+                      className="text-[14px] lg:text-[16px] font-[700] text-[#969191CC]"
+                      htmlFor="favLocation"
+                    >
+                      Location
+                    </label>
+                    <div className="relative flex gap-[17px] flex-row items-center">
+                      <div>
+                        <img
+                          src="/src/assets/icons/locationIcon.png"
+                          alt="locationIcon"
+                        />
+                      </div>
+                      <select
+                        name="favLocation"
+                        id="favLocation"
+                        defaultValue=""
+                        required
+                        className="bg-[transparent] text-[#6F7B6ED6] text-[18px] lg:text-[20px] font-[700] outline-none border-0 pr-[20px]"
+                      >
+                        <option value="la">LA, USA</option>
+                        <option value="la">LA, USA</option>
+                        <option value="la">LA, USA</option>
+                        <option value="la">LA, USA</option>
+                        <option value="la">LA, USA</option>
+                      </select>
+                      <div className="absolute right-0 bottom-0 text-[#6F7B6EF2] text-[28px] flex pointer-events-none bg-[#eff5e5]">
+                        <i className="bx bx-chevron-down"></i>
+                      </div>
+                    </div>
+                  </div>
 
-              <div className="text-[#FDFDF3E5] bg-[#369536] rounded-full flex p-[15px] text-[34px]">
-                <i className="bx bx-search"></i>
+                  <div className="flex flex-col gap-[17px] border-r-[#000000] border-r-[1px] pr-[40px]">
+                    <label
+                      className="text-[14px] lg:text-[16px] font-[700] text-[#969191CC]"
+                      htmlFor="favType"
+                    >
+                      Type
+                    </label>
+                    <div className="relative flex gap-[17px] flex-row items-center">
+                      <div>
+                        <img
+                          src="/src/assets/icons/houseIcon.png"
+                          alt="locationIcon"
+                        />
+                      </div>
+                      <select
+                        name="favType"
+                        id="favType"
+                        defaultValue=""
+                        required
+                        className="bg-[transparent] text-[#6F7B6ED6] text-[18px] lg:text-[20px] font-[700] outline-none border-0 pr-[20px]"
+                      >
+                        <option value="duplex">Duplex</option>
+                        <option value="duplex">Duplex</option>
+                        <option value="duplex">Duplex</option>
+                        <option value="duplex">Duplex</option>
+                        <option value="duplex">Duplex</option>
+                      </select>
+                      <div className="absolute right-0 bottom-0 text-[#6F7B6EF2] text-[28px] flex pointer-events-none bg-[#eff5e5]">
+                        <i className="bx bx-chevron-down"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-[17px]">
+                    <label
+                      className="text-[14px] lg:text-[16px] font-[700] text-[#969191CC]"
+                      htmlFor="favPrice"
+                    >
+                      Price Range
+                    </label>
+                    <div className="relative flex gap-[17px] flex-row items-center">
+                      <div>
+                        <img
+                          src="/src/assets/icons/moneyIcon.png"
+                          alt="locationIcon"
+                        />
+                      </div>
+                      <select
+                        name="favPrice"
+                        id="favPrice"
+                        defaultValue=""
+                        required
+                        className="bg-[transparent] text-[#6F7B6ED6] text-[18px] lg:text-[20px] font-[700] outline-none border-0 pr-[20px]"
+                      >
+                        <option value="price">$30,000-$120,000</option>
+                        <option value="price">$30,000-$120,000</option>
+                        <option value="price">$30,000-$120,000</option>
+                        <option value="price">$30,000-$120,000</option>
+                        <option value="price">$30,000-$120,000</option>
+                      </select>
+                      <div className="absolute right-0 bottom-0 text-[#6F7B6EF2] text-[28px] flex pointer-events-none bg-[#e8ebd6] backdrop-blur-lg">
+                        <i className="bx bx-chevron-down"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-[#FDFDF3E5] bg-[#369536] rounded-full flex p-[15px] text-[34px]">
+                  <i className="bx bx-search"></i>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

@@ -1,17 +1,21 @@
 import React from "react";
-import { Loader, Nav, Sidescroller } from "./components";
-import { AboutSection, HomeSection } from "./sections";
-import { showcaseSlides } from "./constants";
+import { Loader, Nav } from "./components";
+import { AboutSection, HomeSection, PropertiesSection } from "./sections";
+import { properties, showcaseSlides } from "./constants";
 
 function App() {
   const [loader, setLoader] = React.useState(false);
   const [navToggle, setNavToggle] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [currIndex, setCurrIndex] = React.useState(0);
+
   const rootElement = document.documentElement;
   // const scrollers = document.querySelectorAll(".scroller");
 
   function handleNavToggle() {
-    setNavToggle(!navToggle);
+    setNavToggle((prev) => {
+      return !prev;
+    });
     rootElement.toggleAttribute("menu-open");
   }
 
@@ -70,6 +74,22 @@ function App() {
     };
   }, [currentIndex]);
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (currIndex > properties.length - 4) {
+        setCurrIndex(0);
+      } else {
+        setCurrIndex((prev) => {
+          return prev + 1;
+        });
+      }
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currIndex]);
+
   return (
     <>
       <div className="bg-[#FDFDF3] theBody">
@@ -88,6 +108,10 @@ function App() {
           <HomeSection currentIndex={currentIndex} />
           {/* <Sidescroller /> */}
           <AboutSection currentIndex={currentIndex} />
+          <PropertiesSection
+            currIndex={currIndex}
+            setCurrIndex={setCurrIndex}
+          />
         </div>
       </div>
     </>

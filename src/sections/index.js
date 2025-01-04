@@ -1,4 +1,5 @@
 import AboutSection from "./AboutSection";
 import HomeSection from "./HomeSection";
+import PropertiesSection from "./PropertiesSection";
 
-export { HomeSection, AboutSection };
+export { HomeSection, AboutSection, PropertiesSection };

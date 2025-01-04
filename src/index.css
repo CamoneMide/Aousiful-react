@@ -12,6 +12,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Embla Carousel */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
 /* Fonts */
 .carterOneF {
   font-family: "Carter One", system-ui;
@@ -23,6 +35,7 @@ html {
 .navTrans {
   transition: all 0.4s ease-in-out;
 }
+
 .navLink {
   transition: all ease-in-out 0.3s;
 }
