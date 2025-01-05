@@ -26,10 +26,10 @@ const Nav = ({ handleNavToggle, navToggle }) => {
         <div className="flex items-center">
           <div className="hidden interF md:flex">
             <div className="mr-[10px]">
-              <Button text={"Sign Up"} lite={false} />
+              <Button text={"Sign Up"} href={"/signUp"} lite={false} />
             </div>
             <div className="ml-[10px]">
-              <Button text={"Sign In"} lite={true} />
+              <Button text={"Sign In"} href={"/signIn"} lite={true} />
             </div>
           </div>
           <div className="flex lg:hidden md:ml-[24px]">
@@ -54,6 +54,7 @@ const Nav = ({ handleNavToggle, navToggle }) => {
             href={navLink.href}
             key={navLink.label}
             className="text-[26px] pt-5 font-[700] px-[16px] scroll-link"
+            onClick={handleNavToggle}
           >
             {navLink.label}
           </a>

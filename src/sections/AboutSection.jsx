@@ -1,6 +1,8 @@
+import { Button } from "../components";
 import { aboutSlides } from "../constants";
 
 const AboutSection = ({ currentIndex }) => {
+  let lite = false;
   return (
     <>
       <section className="px-5 py-[30px] lg:px-10 lg:py-[60px]" id="aboutUs">
@@ -46,8 +48,12 @@ const AboutSection = ({ currentIndex }) => {
             </p>
             <div className="leading-[67px]">
               <a
-                href=""
-                className="text-[20px] font-[500] px-[26px] py-[13px] bg-[#369536] text-[#FDFDF3] rounded-[15px] border-[#369536] border-[1px]"
+                href={"#services"}
+                className={`text-[16px] font-[500] px-[26px] py-[13px] rounded-[15px] border-[#369536] border-[1px]  cursor-pointer navTrans ${
+                  lite
+                    ? "bg-[transparent] text-[#369536] hover:bg-[#369536] hover:text-[#FDFDF3]"
+                    : "bg-[#369536] text-[#FDFDF3] hover:bg-[transparent] hover:text-[#369536]"
+                }`}
               >
                 Learn More
               </a>

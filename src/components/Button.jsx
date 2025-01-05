@@ -1,8 +1,9 @@
-const Button = ({ text, lite }) => {
+import { Link } from "react-router-dom";
+const Button = ({ text, href, lite }) => {
   return (
     <>
-      <a
-        href="/src/signUp.html"
+      <Link
+        to={href}
         className={`text-[16px] font-[500] px-[26px] py-[13px] rounded-[15px] border-[#369536] border-[1px]  cursor-pointer navTrans ${
           lite
             ? "bg-[transparent] text-[#369536] hover:bg-[#369536] hover:text-[#FDFDF3]"
@@ -10,7 +11,7 @@ const Button = ({ text, lite }) => {
         }`}
       >
         {text}
-      </a>
+      </Link>
     </>
   );
 };

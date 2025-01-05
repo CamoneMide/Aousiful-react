@@ -12,7 +12,7 @@ const PropertyCard = ({
   return (
     <>
       <div
-        className="font-[700] interF flex flex-col px-[12px] py-[15px] bg-[#F9F9F9] rounded-[12px] hsShadow w-[100%] md:w-[340px] navTrans"
+        className="font-[700] interF flex flex-col px-[12px] py-[15px] bg-[#F9F9F9] rounded-[12px] hsShadow w-[100%] md:w-[50%] lg:w-[25%] navTrans"
         style={myStyle}
       >
         <div className="rounded-[12px] h-[200px] overflow-hidden">

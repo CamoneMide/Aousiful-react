@@ -207,6 +207,10 @@ html {
   grid-template-rows: 1fr;
 }
 
+.shAccordion:nth-child(1) {
+  border-top: 1px solid transparent !important;
+}
+
 .footBgI {
   background: url("/src/assets/images/home-showcase12.jpg") no-repeat center
     center/cover;

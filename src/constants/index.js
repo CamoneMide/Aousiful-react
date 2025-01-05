@@ -96,3 +96,87 @@ export const properties = [
     details: "",
   },
 ];
+
+export const serviceCards = [
+  {
+    id: 1,
+    cardImgSrc: "/src/assets/icons/sTag.png",
+    cardImgAlt: "tag1",
+    cardH2: "Transparent Pricing",
+    cardText:
+      "Enjoy clear and fair pricing with no hidden fees, so you know exactly what you’re paying for.",
+  },
+  {
+    id: 2,
+    cardImgSrc: "/src/assets/icons/sTool.png",
+    cardImgAlt: "tag2",
+    cardH2: "Maintenance and Support",
+    cardText:
+      "Access timely maintenance support and ensure your living space remains comfortable.",
+  },
+  {
+    id: 3,
+    cardImgSrc: "/src/assets/icons/sMoney.png",
+    cardImgAlt: "tag3",
+    cardH2: "Rental Insurance Guidance",
+    cardText:
+      "Receive guidance on securing rental insurance to protect your home and belongings.",
+  },
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    src: "/src/assets/images/person1.jpg",
+    alt: "person1",
+    text: "“My experience with this service was exceptional from start to finish. They went above and beyond to make sure I was comfortable with my choice. The personalized property recommendations, clear lease terms, and support made everything easy. Even renewing my lease was simple and stress free. I feel truly at home here something I haven’t experienced with other rentals. Highly recommend”",
+    name: "David.R",
+    job: "Software Engineer",
+  },
+  {
+    id: 2,
+    src: "/src/assets/images/person2.jpg",
+    alt: "person2",
+    text: "“My journey with this service has been nothing short of outstanding. From the moment I reached out, the team provided tailored recommendations that perfectly matched my needs. The process was transparent, with clear explanations every step of the way. Moving in was seamless, and the ongoing support has been phenomenal. They truly prioritize comfort and satisfaction, making me feel valued as a tenant.”",
+    name: "Allen.Jr",
+    job: "Social Assistant",
+  },
+];
+
+export const accordions = [
+  {
+    id: 1,
+    head: "How do I find the right property?",
+    content:
+      "Our platform allows you to filter properties based on location, budget, amenities, and other preferences, making it easy to find a home that fits your lifestyle.",
+    state: true,
+  },
+  {
+    id: 2,
+    head: "What is included in the rental cost?",
+    content:
+      "Our platform allows you to filter properties based on location, budget, amenities, and other preferences, making it easy to find a home that fits your lifestyle.",
+    state: false,
+  },
+  {
+    id: 3,
+    head: "Can I move in with pets?",
+    content:
+      "Our platform allows you to filter properties based on location, budget, amenities, and other preferences, making it easy to find a home that fits your lifestyle.",
+    state: false,
+  },
+  {
+    id: 4,
+    head: "What is included in the rental cost?",
+    content:
+      "Our platform allows you to filter properties based on location, budget, amenities, and other preferences, making it easy to find a home that fits your lifestyle.",
+    state: false,
+  },
+  {
+    id: 5,
+    head: "Is renter’s insurance required?",
+    content:
+      "Our platform allows you to filter properties based on location, budget, amenities, and other preferences, making it easy to find a home that fits your lifestyle.",
+    state: false,
+  },
+];

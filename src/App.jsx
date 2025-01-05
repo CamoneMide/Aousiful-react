@@ -1,7 +1,18 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { Loader, Nav } from "./components";
-import { AboutSection, HomeSection, PropertiesSection } from "./sections";
+import {
+  AboutSection,
+  ContactSection,
+  FindYHSection,
+  HomeSection,
+  PropertiesSection,
+  ServicesSection,
+  TestimonialsSection,
+} from "./sections";
 import { properties, showcaseSlides } from "./constants";
+import FooterSection from "./sections/FooterSection";
+import { SignInPage, SignUpPage } from "./pages";
 
 function App() {
   const [loader, setLoader] = React.useState(false);
@@ -83,7 +94,7 @@ function App() {
           return prev + 1;
         });
       }
-    }, 4000);
+    }, 6000);
 
     return () => {
       clearInterval(interval);
@@ -93,25 +104,48 @@ function App() {
   return (
     <>
       <div className="bg-[#FDFDF3] theBody">
-        <Loader loader={loader} />
+        <Routes>
+          <>
+            <Route path="/" element={<Loader loader={loader} />} />
+            <Route path="/signUp" element={<Loader loader={loader} />} />
+            <Route path="/signIn" element={<Loader loader={loader} />} />
+          </>
+        </Routes>
+
         <div
           className={`pageContent bg-[#FDFDF3] relative ${
             loader ? "tPVisisble" : undefined
           }`}
         >
-          <Nav
-            handleNavToggle={() => {
-              handleNavToggle();
-            }}
-            navToggle={navToggle}
-          />
-          <HomeSection currentIndex={currentIndex} />
-          {/* <Sidescroller /> */}
-          <AboutSection currentIndex={currentIndex} />
-          <PropertiesSection
-            currIndex={currIndex}
-            setCurrIndex={setCurrIndex}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Nav
+                    handleNavToggle={() => {
+                      handleNavToggle();
+                    }}
+                    navToggle={navToggle}
+                  />
+                  <HomeSection currentIndex={currentIndex} />
+                  {/* <Sidescroller /> */}
+                  <AboutSection currentIndex={currentIndex} />
+                  <PropertiesSection
+                    currIndex={currIndex}
+                    setCurrIndex={setCurrIndex}
+                  />
+                  <ServicesSection />
+                  <TestimonialsSection />
+                  <ContactSection />
+                  <FindYHSection />
+                  <FooterSection />
+                </>
+              }
+            />
+            <Route path="/signUp" element={<SignUpPage />} />
+            <Route path="/signIn" element={<SignInPage />} />
+          </Routes>
         </div>
       </div>
     </>
