@@ -12,18 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Embla Carousel */
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
-
 /* Fonts */
 .carterOneF {
   font-family: "Carter One", system-ui;
@@ -43,6 +31,29 @@ html {
   background: rgba(228, 240, 219, 0.4);
   backdrop-filter: blur(60px);
   box-shadow: 5px 5px 10px 0 #00000040;
+}
+
+.logShadow {
+  box-shadow: 3px 4px 4px 0 #00000040;
+}
+
+.signLine::before,
+.signLine::after {
+  content: "";
+  position: absolute;
+  width: 46%;
+  height: 1px;
+  background: #000000;
+  top: 50%;
+  right: 0;
+}
+.signLine::before {
+  left: 0;
+}
+
+.signBgImg {
+  background: url("/src/assets/images/home-showcase21.jpg") no-repeat center
+    center/cover;
 }
 
 /* Loader */
