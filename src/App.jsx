@@ -12,8 +12,7 @@ import {
   TestimonialsSection,
 } from "./sections";
 import { properties, showcaseSlides } from "./constants";
-import SignUpPage from "./pages/SignUpPage";
-import SignInPage from "./pages/SignInPage";
+import { SignInPage, SignUpPage } from "./pages";
 
 function App() {
   const [loader, setLoader] = React.useState(false);

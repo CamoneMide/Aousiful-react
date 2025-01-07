@@ -1,5 +1,9 @@
 import React from "react";
 import { circleImages, showcaseSlides } from "../constants";
+import locationIcon from "/src/assets/icons/locationIcon.png";
+
+import houseIcon from "/src/assets/icons/houseIcon.png";
+import moneyIcon from "/src/assets/icons/moneyIcon.png";
 
 const HomeSection = ({ currentIndex }) => {
   const [searchTabActive, setSearchTabActive] = React.useState(false);
@@ -124,10 +128,7 @@ const HomeSection = ({ currentIndex }) => {
                     </label>
                     <div className="relative flex gap-[17px] flex-row items-center">
                       <div>
-                        <img
-                          src="/src/assets/icons/locationIcon.png"
-                          alt="locationIcon"
-                        />
+                        <img src={locationIcon} alt="locationIcon" />
                       </div>
                       <select
                         name="favLocation"
@@ -157,10 +158,7 @@ const HomeSection = ({ currentIndex }) => {
                     </label>
                     <div className="relative flex gap-[17px] flex-row items-center">
                       <div>
-                        <img
-                          src="/src/assets/icons/houseIcon.png"
-                          alt="locationIcon"
-                        />
+                        <img src={houseIcon} alt="houseIcon" />
                       </div>
                       <select
                         name="favType"
@@ -190,10 +188,7 @@ const HomeSection = ({ currentIndex }) => {
                     </label>
                     <div className="relative flex gap-[17px] flex-row items-center">
                       <div>
-                        <img
-                          src="/src/assets/icons/moneyIcon.png"
-                          alt="locationIcon"
-                        />
+                        <img src={moneyIcon} alt="moneyIcon" />
                       </div>
                       <select
                         name="favPrice"

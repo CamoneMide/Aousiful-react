@@ -1,3 +1,37 @@
+import circleImagesSrc1 from "/src/assets/icons/Ellipse 23.png";
+import circleImagesSrc2 from "/src/assets/icons/Ellipse 24.png";
+import circleImagesSrc3 from "/src/assets/icons/Ellipse 25.png";
+import circleImagesSrc4 from "/src/assets/icons/Ellipse 26.png";
+import circleImagesSrc5 from "/src/assets/icons/Group 31.png";
+
+import showcaseSlidesSrc1 from "../assets/images/home-showcase1.jpg";
+import showcaseSlidesSrc2 from "../assets/images/home-showcase13.jpg";
+import showcaseSlidesSrc3 from "../assets/images/home-showcase14.jpg";
+import showcaseSlidesSrc4 from "../assets/images/home-showcase15.jpg";
+import showcaseSlidesSrc5 from "../assets/images/home-showcase16.jpg";
+
+import aboutSlidesSrc1 from "/src/assets/images/home-showcase2.jpg";
+import aboutSlidesSrc2 from "/src/assets/images/home-showcase17.jpg";
+import aboutSlidesSrc3 from "/src/assets/images/home-showcase18.jpg";
+import aboutSlidesSrc4 from "/src/assets/images/home-showcase19.jpg";
+import aboutSlidesSrc5 from "/src/assets/images/home-showcase20.jpg";
+
+import propertiesImgSrc1 from "/src/assets/images/home-showcase3.jpg";
+import propertiesImgSrc2 from "/src/assets/images/home-showcase4.jpg";
+import propertiesImgSrc3 from "/src/assets/images/home-showcase5.jpg";
+import propertiesImgSrc4 from "/src/assets/images/home-showcase6.jpg";
+import propertiesImgSrc5 from "/src/assets/images/home-showcase7.jpg";
+import propertiesImgSrc6 from "/src/assets/images/home-showcase8.jpg";
+import propertiesImgSrc7 from "/src/assets/images/home-showcase9.jpg";
+import propertiesImgSrc8 from "/src/assets/images/home-showcase10.jpg";
+
+import serviceCardIconsSrc1 from "/src/assets/icons/sTag.png";
+import serviceCardIconsSrc2 from "/src/assets/icons/sTool.png";
+import serviceCardIconsSrc3 from "/src/assets/icons/sMoney.png";
+
+import testimonialsSrc1 from "/src/assets/images/person1.jpg";
+import testimonialsSrc2 from "/src/assets/images/person2.jpg";
+
 export const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#aboutUs", label: "About Us" },
@@ -7,34 +41,34 @@ export const navLinks = [
 ];
 
 export const circleImages = [
-  { id: 1, src: "/src/assets/icons/Ellipse 23.png", alt: "circleImg01" },
-  { id: 2, src: "/src/assets/icons/Ellipse 24.png", alt: "circleImg02" },
-  { id: 3, src: "/src/assets/icons/Ellipse 25.png", alt: "circleImg03" },
-  { id: 4, src: "/src/assets/icons/Ellipse 26.png", alt: "circleImg04" },
-  { id: 5, src: "/src/assets/icons/Group 31.png", alt: "circleImg05" },
+  { id: 1, src: circleImagesSrc1, alt: "circleImg01" },
+  { id: 2, src: circleImagesSrc2, alt: "circleImg02" },
+  { id: 3, src: circleImagesSrc3, alt: "circleImg03" },
+  { id: 4, src: circleImagesSrc4, alt: "circleImg04" },
+  { id: 5, src: circleImagesSrc5, alt: "circleImg05" },
 ];
 
 export const showcaseSlides = [
-  { id: 1, src: "/src/assets/images/home-showcase1.jpg" },
-  { id: 2, src: "/src/assets/images/home-showcase13.jpg" },
-  { id: 3, src: "/src/assets/images/home-showcase14.jpg" },
-  { id: 4, src: "/src/assets/images/home-showcase15.jpg" },
-  { id: 5, src: "/src/assets/images/home-showcase16.jpg" },
+  { id: 1, src: showcaseSlidesSrc1 },
+  { id: 2, src: showcaseSlidesSrc2 },
+  { id: 3, src: showcaseSlidesSrc3 },
+  { id: 4, src: showcaseSlidesSrc4 },
+  { id: 5, src: showcaseSlidesSrc5 },
 ];
 
 export const aboutSlides = [
-  { id: 1, src: "/src/assets/images/home-showcase2.jpg" },
-  { id: 2, src: "/src/assets/images/home-showcase17.jpg" },
-  { id: 3, src: "/src/assets/images/home-showcase18.jpg" },
-  { id: 4, src: "/src/assets/images/home-showcase19.jpg" },
-  { id: 5, src: "/src/assets/images/home-showcase20.jpg" },
+  { id: 1, src: aboutSlidesSrc1 },
+  { id: 2, src: aboutSlidesSrc2 },
+  { id: 3, src: aboutSlidesSrc3 },
+  { id: 4, src: aboutSlidesSrc4 },
+  { id: 5, src: aboutSlidesSrc5 },
 ];
 
 export const properties = [
   {
     id: 1,
     name: "Garden Grove Villa",
-    imgSrc: "/src/assets/images/home-showcase3.jpg",
+    imgSrc: propertiesImgSrc1,
     imgAlt: "house",
     location: "LA,USA",
     price: 850,
@@ -43,7 +77,7 @@ export const properties = [
   {
     id: 2,
     name: "Villa Serenity",
-    imgSrc: "/src/assets/images/home-showcase4.jpg",
+    imgSrc: propertiesImgSrc2,
     imgAlt: "house",
     location: "LA,USA",
     price: 700,
@@ -52,7 +86,7 @@ export const properties = [
   {
     id: 3,
     name: "Casa Bella",
-    imgSrc: "/src/assets/images/home-showcase5.jpg",
+    imgSrc: propertiesImgSrc3,
     imgAlt: "house",
     location: "LA,USA",
     price: 600,
@@ -61,7 +95,7 @@ export const properties = [
   {
     id: 4,
     name: "Villa Amara",
-    imgSrc: "/src/assets/images/home-showcase6.jpg",
+    imgSrc: propertiesImgSrc4,
     imgAlt: "house",
     location: "LA,USA",
     price: 750,
@@ -70,7 +104,7 @@ export const properties = [
   {
     id: 5,
     name: "Garden Grove Villa",
-    imgSrc: "/src/assets/images/home-showcase7.jpg",
+    imgSrc: propertiesImgSrc5,
     imgAlt: "house",
     location: "LA,USA",
     price: 900,
@@ -79,7 +113,7 @@ export const properties = [
   {
     id: 6,
     name: "Villa Serenity",
-    imgSrc: "/src/assets/images/home-showcase8.jpg",
+    imgSrc: propertiesImgSrc6,
     imgAlt: "house",
     location: "LA,USA",
     price: 700,
@@ -88,7 +122,7 @@ export const properties = [
   {
     id: 7,
     name: "Casa Bella",
-    imgSrc: "/src/assets/images/home-showcase9.jpg",
+    imgSrc: propertiesImgSrc7,
     imgAlt: "house",
     location: "LA,USA",
     price: 500,
@@ -97,7 +131,7 @@ export const properties = [
   {
     id: 8,
     name: "Villa Amara",
-    imgSrc: "/src/assets/images/home-showcase10.jpg",
+    imgSrc: propertiesImgSrc8,
     imgAlt: "house",
     location: "LA,USA",
     price: 900,
@@ -108,7 +142,7 @@ export const properties = [
 export const serviceCards = [
   {
     id: 1,
-    cardImgSrc: "/src/assets/icons/sTag.png",
+    cardImgSrc: serviceCardIconsSrc1,
     cardImgAlt: "tag1",
     cardH2: "Transparent Pricing",
     cardText:
@@ -116,7 +150,7 @@ export const serviceCards = [
   },
   {
     id: 2,
-    cardImgSrc: "/src/assets/icons/sTool.png",
+    cardImgSrc: serviceCardIconsSrc2,
     cardImgAlt: "tag2",
     cardH2: "Maintenance and Support",
     cardText:
@@ -124,7 +158,7 @@ export const serviceCards = [
   },
   {
     id: 3,
-    cardImgSrc: "/src/assets/icons/sMoney.png",
+    cardImgSrc: serviceCardIconsSrc3,
     cardImgAlt: "tag3",
     cardH2: "Rental Insurance Guidance",
     cardText:
@@ -135,7 +169,7 @@ export const serviceCards = [
 export const testimonials = [
   {
     id: 1,
-    src: "/src/assets/images/person1.jpg",
+    src: testimonialsSrc1,
     alt: "person1",
     text: "“My experience with this service was exceptional from start to finish. They went above and beyond to make sure I was comfortable with my choice. The personalized property recommendations, clear lease terms, and support made everything easy. Even renewing my lease was simple and stress free. I feel truly at home here something I haven’t experienced with other rentals. Highly recommend”",
     name: "David.R",
@@ -143,7 +177,7 @@ export const testimonials = [
   },
   {
     id: 2,
-    src: "/src/assets/images/person2.jpg",
+    src: testimonialsSrc2,
     alt: "person2",
     text: "“My journey with this service has been nothing short of outstanding. From the moment I reached out, the team provided tailored recommendations that perfectly matched my needs. The process was transparent, with clear explanations every step of the way. Moving in was seamless, and the ongoing support has been phenomenal. They truly prioritize comfort and satisfaction, making me feel valued as a tenant.”",
     name: "Allen.Jr",

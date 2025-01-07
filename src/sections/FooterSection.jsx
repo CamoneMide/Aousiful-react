@@ -1,4 +1,4 @@
-import React from "react";
+import logoImg from "/src/assets/images/Frame 167.png";
 
 const FooterSection = () => {
   return (
@@ -10,12 +10,7 @@ const FooterSection = () => {
               <h2 className="text-[28px] font-normal flex items-center carterOneF text-[#369536] leading-[67px]">
                 Aousiful
                 <span className="">
-                  <img
-                    width="35"
-                    height="35"
-                    src="/src/assets/images/Frame 167.png"
-                    alt="logo"
-                  />
+                  <img width="35" height="35" src={logoImg} alt="logo" />
                 </span>
               </h2>
               <p className="leading-[30px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]">

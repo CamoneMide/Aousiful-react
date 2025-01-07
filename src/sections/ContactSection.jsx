@@ -1,6 +1,7 @@
 import React from "react";
 import { accordions } from "../constants";
 import { Accordion, Button } from "../components";
+import contactShowcaseSrc from "/src/assets/images/home-showcase11.jpg";
 
 const ContactSection = () => {
   return (
@@ -14,7 +15,7 @@ const ContactSection = () => {
             <div className="flex flex-col items-start md:mt-[30px] lg:mt-[0]">
               <div className="h-[450px] w-full rounded-[15px] overflow-hidden hidden md:flex">
                 <img
-                  src="/src/assets/images/home-showcase11.jpg"
+                  src={contactShowcaseSrc}
                   alt="showcase"
                   className="w-full h-full rounded-[15px] object-cover hover:scale-[1.2] imgTrans"
                 />

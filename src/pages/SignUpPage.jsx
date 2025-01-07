@@ -1,6 +1,9 @@
 import { FormInput, Logo, SignButton } from "../components";
 import { circleImages } from "../constants";
 import { Link } from "react-router-dom";
+import logoImg from "/src/assets/images/Frame 167.png";
+import googleSignIcon from "/src/assets/icons/Google-signIcon.png";
+import facebookSignIcon from "/src/assets/icons/Facebook-signIcon.png";
 
 const SignUpPage = () => {
   return (
@@ -69,12 +72,7 @@ const SignUpPage = () => {
               >
                 Aousiful
                 <span className="">
-                  <img
-                    width="35"
-                    height="35"
-                    src={"/src/assets/images/Frame 167.png"}
-                    alt="logo"
-                  />
+                  <img width="35" height="35" src={logoImg} alt="logo" />
                 </span>
               </Link>
             </div>
@@ -155,10 +153,7 @@ const SignUpPage = () => {
                   className="text-center w-full text-[14px] md:text-[18px] font-[600] p-[10px] rounded-[8px] border-[#369536] border-[1px] cursor-pointer navTrans bg-[#fefef8] text-[#000000F2] hover:underline flex justify-center"
                 >
                   <span className="mr-2">
-                    <img
-                      src="/src/assets/icons/Google-signIcon.png"
-                      alt="Google-signIcon"
-                    />
+                    <img src={googleSignIcon} alt="Google-signIcon" />
                   </span>
                   Sign up with Google
                 </a>
@@ -167,10 +162,7 @@ const SignUpPage = () => {
                   className="text-center w-full text-[14px] md:text-[18px] font-[600] p-[10px] rounded-[8px] border-[#369536] border-[1px] cursor-pointer navTrans bg-[#fefef8] text-[#000000F2] hover:underline flex justify-center"
                 >
                   <span className="mr-2">
-                    <img
-                      src="/src/assets/icons/Facebook-signIcon.png"
-                      alt="Facebook-signIcon"
-                    />
+                    <img src={facebookSignIcon} alt="Facebook-signIcon" />
                   </span>
                   Sign up with Facebook
                 </a>

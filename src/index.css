@@ -146,6 +146,7 @@ html {
 }
 
 :root[menu-open] {
+  height: 100vh;
   overflow-y: hidden;
 }
 
