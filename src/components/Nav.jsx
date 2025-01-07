@@ -1,8 +1,23 @@
+import React from "react";
 import Button from "./Button";
 import { navLinks } from "../constants";
 import Logo from "./Logo";
 
 const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
+  React.useEffect(() => {
+    const preventScroll = (e) => {
+      e.preventDefault();
+    };
+    const noTouch = document.getElementById("noTouch");
+
+    noTouch.addEventListener("touchmove", preventScroll, { passive: false });
+
+    // Cleanup event listener on unmount
+    return () => {
+      noTouch.removeEventListener("touchmove", preventScroll);
+    };
+  }, []);
+
   const myStyle = {
     top: currentHeight,
   };
@@ -48,11 +63,13 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
           </div>
         </div>
       </nav>
+
       <div
         className={`interF navTog text-[#369536] pt-[30px] ${
           navToggle ? "navTog-show" : undefined
         } px-5 md:px-10`}
         style={myStyle}
+        id="noTouch"
       >
         <div className="flex flex-col items-center">
           {navLinks.map((navLink) => (
@@ -69,10 +86,10 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
 
         <div className="pb-[30px] w-full">
           <div className="flex w-full mb-[50px] justify-center">
-            <div className="mr-[10px]">
+            <div className="mr-[10px]" onClick={handleNavToggle}>
               <Button text={"Sign Up"} href={"/signUp"} lite={false} />
             </div>
-            <div className="ml-[10px]">
+            <div className="ml-[10px]" onClick={handleNavToggle}>
               <Button text={"Sign In"} href={"/signIn"} lite={true} />
             </div>
           </div>

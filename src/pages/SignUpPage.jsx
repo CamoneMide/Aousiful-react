@@ -77,7 +77,7 @@ const SignUpPage = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full h-full px-[10%] lg:px-[12%] py-[14%] md:py-[20%] lg:py-[4%] bg-[rgba(255,255,255,0.6)] lg:bg-[#fdfdf3] flex flex-col justify-center rounded-[8px] lg:rounded-none lg:shadow-none shadow-md backdrop-blur">
+          <div className="w-full h-full px-[10%] lg:px-[12%] py-[10%] md:py-[20%] lg:py-[4%] bg-[rgba(255,255,255,0.6)] lg:bg-[#fdfdf3] flex flex-col justify-center rounded-[8px] lg:rounded-none lg:shadow-none shadow-md backdrop-blur">
             <div className="flex flex-col gap-[20px]">
               <h2 className="text-[32px] md:text-[36px] text-[#000000F2] font-[700]">
                 Create an account
@@ -92,7 +92,7 @@ const SignUpPage = () => {
                 </a>
               </h6>
               <form className="flex flex-col w-full gap-[20px]">
-                <div className="flex flex-row justify-between w-full gap-[20px]">
+                <div className="flex flex-col md:flex-row md:justify-between w-full gap-[20px]">
                   <div>
                     <FormInput
                       label={"First Name"}

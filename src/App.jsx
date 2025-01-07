@@ -66,10 +66,19 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    window.addEventListener("load", () => {
-      setLoader(!loader);
-    });
+    // Simulate a delay (e.g., API call or component mounting)
+    const timer = setTimeout(() => {
+      setLoader(true); // Hide the loader
+    }, 2000);
+
+    return () => clearTimeout(timer); // Cleanup timeout
   }, []);
+
+  // React.useEffect(() => {
+  //   window.addEventListener("load", () => {
+  //     setLoader(true);
+  //   });
+  // }, []);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -105,7 +114,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-[#FDFDF3] theBody">
+      <div className="bg-[#FDFDF3]">
         <Routes>
           <>
             <Route path="/" element={<Loader loader={loader} />} />
@@ -113,11 +122,10 @@ function App() {
             <Route path="/signIn" element={<Loader loader={loader} />} />
           </>
         </Routes>
-
         <div
           className={`pageContent bg-[#FDFDF3] relative ${
             loader ? "tPVisisble" : undefined
-          }`}
+          } `}
         >
           <Routes>
             <Route
