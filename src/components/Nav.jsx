@@ -2,7 +2,11 @@ import Button from "./Button";
 import { navLinks } from "../constants";
 import Logo from "./Logo";
 
-const Nav = ({ handleNavToggle, navToggle }) => {
+const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
+  const myStyle = {
+    top: currentHeight,
+  };
+
   return (
     <>
       <nav
@@ -46,19 +50,26 @@ const Nav = ({ handleNavToggle, navToggle }) => {
       </nav>
       <div
         className={`interF navTog text-[#369536] pt-5 ${
-          navToggle ? "navTog-show" : null
+          navToggle ? "navTog-show" : undefined
         }`}
+        style={myStyle}
       >
-        {navLinks.map((navLink) => (
-          <a
-            href={navLink.href}
-            key={navLink.label}
-            className="text-[26px] pt-5 font-[700] px-[16px] scroll-link"
-            onClick={handleNavToggle}
-          >
-            {navLink.label}
-          </a>
-        ))}
+        <div className="flex flex-col">
+          {navLinks.map((navLink) => (
+            <a
+              href={navLink.href}
+              key={navLink.label}
+              className="text-[26px] pt-5 font-[700] px-[16px] scroll-link"
+              onClick={handleNavToggle}
+            >
+              {navLink.label}
+            </a>
+          ))}
+        </div>
+
+        <div>
+          <p className="text-[26px] pt-5 font-[700] px-[16px]">Footer</p>{" "}
+        </div>
       </div>
     </>
   );

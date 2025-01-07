@@ -1,5 +1,5 @@
 import React from "react";
-import { showcaseSlides } from "../constants";
+import { circleImages, showcaseSlides } from "../constants";
 
 const HomeSection = ({ currentIndex }) => {
   const [searchTabActive, setSearchTabActive] = React.useState(false);
@@ -24,33 +24,25 @@ const HomeSection = ({ currentIndex }) => {
             </p>
             <div className="flex flex-row items-center justify-start mt-[25px] md:mt-[0px]">
               <div className="relative flex flex-row items-center justify-start w-full">
-                <img
-                  className="absolute left-0 z-[1px]"
-                  src="/src/assets/icons/Ellipse 23.png"
-                  alt="e23"
-                />
-                <img
-                  className="absolute left-0 translate-x-[40px] z-[2px]"
-                  src="/src/assets/icons/Ellipse 24.png"
-                  alt="e24"
-                />
-                <img
-                  className="absolute left-0 translate-x-[80px] z-[3px]"
-                  src="/src/assets/icons/Ellipse 25.png"
-                  alt="e25"
-                />
-                <img
-                  className="absolute left-0 translate-x-[120px] z-[4px]"
-                  src="/src/assets/icons/Ellipse 26.png"
-                  alt="e26"
-                />
-                <img
-                  className="absolute left-0 translate-x-[160px] z-[5px]"
-                  src="/src/assets/icons/Group 31.png"
-                  alt="e31"
-                />
+                {circleImages.map((circleImage, index) => {
+                  const myStyle = {
+                    transform: `translateX(${index * 70}%)`,
+                    zIndex: { index },
+                    // left: `${index * 70}%`,
+                  };
+
+                  return (
+                    <img
+                      key={circleImage.id}
+                      className="absolute left-0"
+                      src={circleImage.src}
+                      alt={circleImage.alt}
+                      style={myStyle}
+                    />
+                  );
+                })}
               </div>
-              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[390px] md:-ml-[530px]">
+              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[365px] md:-ml-[520px]">
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>

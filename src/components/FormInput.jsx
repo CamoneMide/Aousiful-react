@@ -1,6 +1,8 @@
 import React from "react";
 
 const FormInput = ({ label, type, icon1, icon2 }) => {
+  // const [passType, setPassType] = React.useState(false);
+
   return (
     <>
       <label className="text-[16px] md:text-[20px] text-[#000000F2] font-[600] flex flex-col">
@@ -16,7 +18,7 @@ const FormInput = ({ label, type, icon1, icon2 }) => {
             className={`${icon1} absolute text-[#00000066] left-[16px] top-[14px] text-[23px]`}
           ></i>
           <i
-            className={`absolute text-[#00000066] right-[16px] top-[14px] text-[23px] ${icon2}`}
+            className={`absolute text-[#00000066] cursor-pointer right-[16px] top-[14px] text-[23px] ${icon2}`}
           ></i>
         </div>
       </label>

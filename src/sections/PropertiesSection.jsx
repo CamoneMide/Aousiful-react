@@ -14,15 +14,12 @@ const PropertiesSection = ({ currIndex, setCurrIndex }) => {
   let myWidth;
   if (windowWidth < 640 || windowWidth === 640) {
     myWidth = 100;
-    console.log("Small");
   }
   if (windowWidth > 640 || windowWidth === 760) {
     myWidth = 52;
-    console.log("Medium");
   }
   if (windowWidth > 868) {
     myWidth = 26;
-    console.log("Large");
   }
 
   return (

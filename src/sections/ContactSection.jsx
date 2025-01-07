@@ -11,7 +11,7 @@ const ContactSection = () => {
             Frequently Asked Questions
           </h2>
           <div className="lg:grid flex flex-col-reverse gap-[0] lg:gap-[50px] lg:grid-cols-2 mt-[30px] lg:-[50px]">
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start md:mt-[30px] lg:mt-[0]">
               <div className="h-[450px] w-full rounded-[15px] overflow-hidden hidden md:flex">
                 <img
                   src="/src/assets/images/home-showcase11.jpg"

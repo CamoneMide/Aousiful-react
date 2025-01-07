@@ -6,6 +6,14 @@ export const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
+export const circleImages = [
+  { id: 1, src: "/src/assets/icons/Ellipse 23.png", alt: "circleImg01" },
+  { id: 2, src: "/src/assets/icons/Ellipse 24.png", alt: "circleImg02" },
+  { id: 3, src: "/src/assets/icons/Ellipse 25.png", alt: "circleImg03" },
+  { id: 4, src: "/src/assets/icons/Ellipse 26.png", alt: "circleImg04" },
+  { id: 5, src: "/src/assets/icons/Group 31.png", alt: "circleImg05" },
+];
+
 export const showcaseSlides = [
   { id: 1, src: "/src/assets/images/home-showcase1.jpg" },
   { id: 2, src: "/src/assets/images/home-showcase13.jpg" },

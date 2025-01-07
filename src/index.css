@@ -37,6 +37,10 @@ html {
   box-shadow: 3px 4px 4px 0 #00000040;
 }
 
+.spShadow {
+  box-shadow: 4px 5px 6px 3px #00000040;
+}
+
 .signLine::before,
 .signLine::after {
   content: "";
@@ -141,6 +145,10 @@ html {
   transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
+:root[menu-open] {
+  overflow-y: hidden;
+}
+
 :root[menu-open] .navTogBtn span:nth-child(1) {
   transform: translate3d(0, 6px, 0) rotate(45deg);
 }
@@ -160,12 +168,13 @@ html {
 
 .navTog {
   display: flex;
+  height: calc(100vh - 84px);
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   inset: 0;
-  right: 34%;
-  top: 84px;
+  bottom: 0;
   transition: all 0.4s ease-in-out;
   opacity: 0;
   transform: translate(-100%);

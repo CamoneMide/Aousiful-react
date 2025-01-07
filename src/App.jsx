@@ -5,13 +5,13 @@ import {
   AboutSection,
   ContactSection,
   FindYHSection,
+  FooterSection,
   HomeSection,
   PropertiesSection,
   ServicesSection,
   TestimonialsSection,
 } from "./sections";
 import { properties, showcaseSlides } from "./constants";
-import FooterSection from "./sections/FooterSection";
 import { SignInPage, SignUpPage } from "./pages";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
   const [navToggle, setNavToggle] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [currIndex, setCurrIndex] = React.useState(0);
+  const [currentHeight, setCurrentHeight] = React.useState(84);
 
   const rootElement = document.documentElement;
   // const scrollers = document.querySelectorAll(".scroller");
@@ -55,6 +56,7 @@ function App() {
       const navbar = document.getElementById("nav");
       const scrollHeight = window.pageYOffset;
       const navHeight = navbar.getBoundingClientRect().height;
+      setCurrentHeight(scrollHeight + navHeight - 2);
       if (scrollHeight > navHeight) {
         navbar.classList.add("shPSticky");
       } else {
@@ -127,6 +129,7 @@ function App() {
                       handleNavToggle();
                     }}
                     navToggle={navToggle}
+                    currentHeight={currentHeight}
                   />
                   <HomeSection currentIndex={currentIndex} />
                   {/* <Sidescroller /> */}
