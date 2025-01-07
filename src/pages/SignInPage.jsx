@@ -1,11 +1,30 @@
 import { FormInput, Logo, SignButton } from "../components";
 import { circleImages } from "../constants";
+import { Link } from "react-router-dom";
 
 const SignInPage = () => {
   return (
     <>
       <section className="min-h-[100vh] min-w-[100vw] flex flex-col lg:grid lg:grid-cols-2 interF gap-0">
-        <div className="w-full min-h-[100vh] h-full signBgImg md:px-[10%] px-[5%] lg:px-[0] lg:py-[0] py-[20%]">
+        <div className="w-full min-h-[100vh] h-full signBgImg md:px-[10%] px-[5%] lg:px-[0] lg:py-[0] pb-[20%]">
+          <div className="text-[#369536] flex lg:hidden pb-[10%] pt-[5%]">
+            <div className="shadow-md backdrop-blur bg-[rgba(255,255,255,0.2)] px-[5px] rounded-[8px]">
+              <Link
+                to={"/"}
+                className="text-[24px] md:text-[28px] font-normal flex items-center carterOneF"
+              >
+                Aousiful
+                <span className="">
+                  <img
+                    width="35"
+                    height="35"
+                    src={"/src/assets/images/Frame 167.png"}
+                    alt="logo"
+                  />
+                </span>
+              </Link>
+            </div>
+          </div>
           <div className="w-full h-full px-[10%] lg:px-[12%] py-[14%] md:py-[20%] lg:py-[7%] bg-[rgba(255,255,255,0.6)] lg:bg-[#fdfdf3] flex flex-col justify-center rounded-[8px] lg:rounded-none lg:shadow-none shadow-md backdrop-blur">
             <div className="flex flex-col gap-[20px]">
               <h2 className="text-[32px] md:text-[36px] text-[#000000F2] font-[700]">

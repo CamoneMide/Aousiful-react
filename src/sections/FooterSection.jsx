@@ -26,7 +26,7 @@ const FooterSection = () => {
                 href=""
                 className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
               >
-                Terms & Conditions{" "}
+                Terms & Conditions
               </a>
             </div>
             <div className="flex flex-col col-span-2">

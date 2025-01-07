@@ -49,17 +49,17 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
         </div>
       </nav>
       <div
-        className={`interF navTog text-[#369536] pt-5 ${
+        className={`interF navTog text-[#369536] pt-[30px] ${
           navToggle ? "navTog-show" : undefined
-        }`}
+        } px-5 md:px-10`}
         style={myStyle}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center">
           {navLinks.map((navLink) => (
             <a
               href={navLink.href}
               key={navLink.label}
-              className="text-[26px] pt-5 font-[700] px-[16px] scroll-link"
+              className="text-[28px] md:text-[34px] pt-5 font-[700]"
               onClick={handleNavToggle}
             >
               {navLink.label}
@@ -67,8 +67,32 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
           ))}
         </div>
 
-        <div>
-          <p className="text-[26px] pt-5 font-[700] px-[16px]">Footer</p>{" "}
+        <div className="pb-[30px] w-full">
+          <div className="flex w-full mb-[50px] justify-center">
+            <div className="mr-[10px]">
+              <Button text={"Sign Up"} href={"/signUp"} lite={false} />
+            </div>
+            <div className="ml-[10px]">
+              <Button text={"Sign In"} href={"/signIn"} lite={true} />
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center md:justify-between md:flex-row text-[16px] lg:text-[18px] font-[600] text-[#6F7B6ED6] border-t-[1px] border-t-[#6f7b6e99] pt-[10px] ">
+            <p>Copyright &copy; 2025, Aousiful~React.</p>
+            <p className="flex flex-row items-center flex-nowrap">
+              <strong>Developed by</strong>
+              <a href="#" target="_blank" className="ml-1">
+                <i>Camone_Mide</i>
+              </a>
+              <a
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/mide-web-developer"
+                target="_blank"
+                className="text-[18px] text-[#369536] px-[4px]"
+              >
+                <i className="bx bxl-linkedin"></i>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </>
