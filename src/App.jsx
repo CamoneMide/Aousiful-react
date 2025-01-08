@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Loader, Nav } from "./components";
+import { Loader, Nav, Sidescroller } from "./components";
+import { useScroll } from "framer-motion";
+import Lenis from "lenis";
 import {
   AboutSection,
   ContactSection,
@@ -23,6 +25,23 @@ function App() {
 
   const rootElement = document.documentElement;
   // const scrollers = document.querySelectorAll(".scroller");
+
+  React.useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
+  const container = React.useRef();
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
 
   function handleNavToggle() {
     setNavToggle((prev) => {
@@ -141,6 +160,25 @@ function App() {
                   />
                   <HomeSection currentIndex={currentIndex} />
                   {/* <Sidescroller /> */}
+                  <main className="overflow-hidden">
+                    <div ref={container} className="relative">
+                      <Sidescroller
+                        left="-55%"
+                        progress={scrollYProgress}
+                        direction="left"
+                      />
+                      <Sidescroller
+                        left="-85%"
+                        progress={scrollYProgress}
+                        direction="right"
+                      />
+                      <Sidescroller
+                        left="-40%"
+                        progress={scrollYProgress}
+                        direction="left"
+                      />
+                    </div>
+                  </main>
                   <AboutSection currentIndex={currentIndex} />
                   <PropertiesSection
                     currIndex={currIndex}

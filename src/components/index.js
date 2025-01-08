@@ -4,6 +4,7 @@ import FormInput from "./FormInput";
 import Loader from "./Loader";
 import Logo from "./Logo";
 import Nav from "./Nav";
+import Phrase from "./Phrase";
 import PropertyCard from "./PropertyCard";
 import ServiceCard from "./ServiceCard";
 import Sidescroller from "./Sidescroller";
@@ -20,4 +21,5 @@ export {
   Accordion,
   FormInput,
   SignButton,
+  Phrase,
 };
