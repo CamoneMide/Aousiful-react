@@ -1,8 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Loader, Nav, Sidescroller } from "./components";
-import { useScroll } from "framer-motion";
-import Lenis from "lenis";
 import {
   AboutSection,
   ContactSection,
@@ -15,60 +13,40 @@ import {
 } from "./sections";
 import { properties, showcaseSlides } from "./constants";
 import { SignInPage, SignUpPage } from "./pages";
+// import Lenis from "lenis";
 
 function App() {
   const [loader, setLoader] = React.useState(false);
   const [navToggle, setNavToggle] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [abtCurIndex, setAbtCurIndex] = React.useState(0);
   const [currIndex, setCurrIndex] = React.useState(0);
   const [currentHeight, setCurrentHeight] = React.useState(84);
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
 
-  const rootElement = document.documentElement;
-  // const scrollers = document.querySelectorAll(".scroller");
+  // React.useEffect(() => {
+  //   const lenis = new Lenis();
 
-  React.useEffect(() => {
-    const lenis = new Lenis();
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  //   requestAnimationFrame(raf);
 
-    requestAnimationFrame(raf);
-  }, []);
-
-  const container = React.useRef();
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  });
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, []);
 
   function handleNavToggle() {
+    const rootElement = document.documentElement;
+
     setNavToggle((prev) => {
       return !prev;
     });
     rootElement.toggleAttribute("menu-open");
   }
-
-  // React.useEffect(() => {
-  //   function addAnimation() {
-  //     scrollers.forEach((scroller) => {
-  //       scroller.setAttribute("data-animated", true);
-
-  //       const scrollerInner = scroller.querySelector(".scroller_inner");
-  //       const scrollerContent = Array.from(scrollerInner.children);
-
-  //       scrollerContent.forEach((item) => {
-  //         const duplicatedItem = item.cloneNode(true);
-  //         duplicatedItem.setAttribute("aria-hidden", true);
-  //         scrollerInner.appendChild(duplicatedItem);
-  //       });
-  //     });
-  //   }
-  //   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  //     addAnimation();
-  //   }
-  // });
 
   React.useEffect(() => {
     window.addEventListener("scroll", function () {
@@ -85,19 +63,40 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    // Simulate a delay (e.g., API call or component mounting)
-    const timer = setTimeout(() => {
-      setLoader(true); // Hide the loader
-    }, 2000);
+    const handleScroll = () => {
+      const navbar = document.getElementById("nav");
+      const scrollHeight = window.pageYOffset;
+      const navHeight = navbar.getBoundingClientRect().height;
+      setCurrentHeight(scrollHeight + navHeight - 2);
+      if (scrollHeight > navHeight) {
+        navbar.classList.add("shPSticky");
+      } else {
+        navbar.classList.remove("shPSticky");
+      }
+    };
 
-    return () => clearTimeout(timer); // Cleanup timeout
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // React.useEffect(() => {
-  //   window.addEventListener("load", () => {
+  //   const timer = setTimeout(() => {
   //     setLoader(true);
-  //   });
+  //   }, 2000);
+
+  //   return () => clearTimeout(timer);
   // }, []);
+
+  React.useEffect(() => {
+    const handleLoad = () => setLoader(true);
+
+    window.addEventListener("load", handleLoad);
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -117,7 +116,54 @@ function App() {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (currIndex > properties.length - 4) {
+      if (abtCurIndex > showcaseSlides.length - 2) {
+        setAbtCurIndex(0);
+      } else {
+        setAbtCurIndex((prev) => {
+          return prev + 1;
+        });
+      }
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [abtCurIndex]);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  let myWidth;
+  let prevIndex;
+  let nextIndex;
+  if (windowWidth < 640 || windowWidth === 640) {
+    myWidth = 100;
+    prevIndex = 1;
+    nextIndex = 2;
+  }
+  if (windowWidth > 640 || windowWidth === 760) {
+    myWidth = 52;
+    prevIndex = 1;
+    nextIndex = 2;
+  }
+  if (windowWidth > 868) {
+    myWidth = 26;
+    prevIndex = 3;
+    nextIndex = 4;
+  }
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (currIndex > properties.length - nextIndex) {
         setCurrIndex(0);
       } else {
         setCurrIndex((prev) => {
@@ -129,7 +175,7 @@ function App() {
     return () => {
       clearInterval(interval);
     };
-  }, [currIndex]);
+  }, [currIndex, nextIndex]);
 
   return (
     <>
@@ -159,30 +205,17 @@ function App() {
                     currentHeight={currentHeight}
                   />
                   <HomeSection currentIndex={currentIndex} />
-                  {/* <Sidescroller /> */}
-                  <main className="overflow-hidden">
-                    <div ref={container} className="relative">
-                      <Sidescroller
-                        left="-55%"
-                        progress={scrollYProgress}
-                        direction="left"
-                      />
-                      <Sidescroller
-                        left="-85%"
-                        progress={scrollYProgress}
-                        direction="right"
-                      />
-                      <Sidescroller
-                        left="-40%"
-                        progress={scrollYProgress}
-                        direction="left"
-                      />
-                    </div>
-                  </main>
-                  <AboutSection currentIndex={currentIndex} />
+                  <div className="pt-[70px]">
+                    <Sidescroller />
+                  </div>
+                  <Sidescroller direction={"right"} />
+                  <AboutSection currentIndex={abtCurIndex} />
                   <PropertiesSection
                     currIndex={currIndex}
                     setCurrIndex={setCurrIndex}
+                    myWidth={myWidth}
+                    prevIndex={prevIndex}
+                    nextIndex={nextIndex}
                   />
                   <ServicesSection />
                   <TestimonialsSection />

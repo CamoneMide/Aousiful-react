@@ -32,6 +32,12 @@ import serviceCardIconsSrc3 from "/src/assets/icons/sMoney.png";
 import testimonialsSrc1 from "/src/assets/images/person1.jpg";
 import testimonialsSrc2 from "/src/assets/images/person2.jpg";
 
+import scrollingImgSrc1 from "/src/assets/icons/Frame 178.png";
+import scrollingImgSrc2 from "/src/assets/icons/Frame 179.png";
+import scrollingImgSrc3 from "/src/assets/icons/Frame 181.png";
+import scrollingImgSrc4 from "/src/assets/icons/Frame 180.png";
+import scrollingImgSrc5 from "/src/assets/icons/1969218 1.png";
+
 export const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#aboutUs", label: "About Us" },
@@ -54,6 +60,14 @@ export const showcaseSlides = [
   { id: 3, src: showcaseSlidesSrc3 },
   { id: 4, src: showcaseSlidesSrc4 },
   { id: 5, src: showcaseSlidesSrc5 },
+];
+
+export const scrollingImages = [
+  { id: 1, src: scrollingImgSrc1, alt: "Notion" },
+  { id: 2, src: scrollingImgSrc2, alt: "Google" },
+  { id: 3, src: scrollingImgSrc3, alt: "HighLand" },
+  { id: 4, src: scrollingImgSrc4, alt: "Flaticon" },
+  { id: 5, src: scrollingImgSrc5, alt: "VISA" },
 ];
 
 export const aboutSlides = [

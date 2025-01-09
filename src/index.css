@@ -257,13 +257,13 @@ html {
 /* overflow: hidden; */
 /* } */
 
-.scroller_inner {
+/* .scroller_inner {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* padding-block: 1rem; */
+  padding-block: 1rem;
   gap: 3rem;
-}
+} */
 
 .scroller[data-animated="true"] {
   overflow: hidden;
@@ -294,7 +294,7 @@ html {
   }
 }
 
-.hoImg {
+/* .hoImg {
   animation: fade-in linear forwards;
   animation-timeline: view();
   animation-range-start: entry;
@@ -318,4 +318,4 @@ html {
     opacity: 1;
     transform: translate(0);
   }
-}
+} */

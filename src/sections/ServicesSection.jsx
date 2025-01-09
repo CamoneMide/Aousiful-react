@@ -4,7 +4,7 @@ import { ServiceCard } from "../components";
 const ServicesSection = () => {
   return (
     <>
-      <section className="px-5 py-[60px] lg:px-10" id="services">
+      <section className="px-5 py-[90px] lg:px-10" id="services">
         <div className="flex flex-col items-center">
           <div className="font-[600] interF">
             <h2 className="text-[40px] lg:text-[44px] leading-[67px] text-[#000000] text-center">

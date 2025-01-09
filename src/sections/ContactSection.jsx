@@ -1,4 +1,3 @@
-import React from "react";
 import { accordions } from "../constants";
 import { Accordion, Button } from "../components";
 import contactShowcaseSrc from "/src/assets/images/home-showcase11.jpg";
@@ -6,7 +5,7 @@ import contactShowcaseSrc from "/src/assets/images/home-showcase11.jpg";
 const ContactSection = () => {
   return (
     <>
-      <section className="px-5 py-20 lg:px-10" id="contact">
+      <section className="px-5 py-[90px] lg:px-10" id="contact">
         <div className="flex flex-col items-center">
           <h2 className="text-[40px] lg:text-[44px] lg:leading-[67px] leading-[48px] text-[#000000] font-[600]">
             Frequently Asked Questions

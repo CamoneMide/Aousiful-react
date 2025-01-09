@@ -21,8 +21,8 @@ const TestimonialsSection = () => {
 
   return (
     <>
-      <section className="bg-[#EAF4E8]" id="testimonials">
-        <div className="flex flex-col px-5 py-20 lg:px-10 interF font-[700]">
+      <section className="bg-[#EAF4E8] py-[100px]" id="testimonials">
+        <div className="flex flex-col px-5 lg:px-10 interF font-[700]">
           <div className="flex flex-row items-center justify-between">
             <h2 className="text-[36px] md:text-[48px] leading-[67px] text-[#000000]">
               Testimonials

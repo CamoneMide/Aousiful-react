@@ -1,12 +1,11 @@
-import { Button } from "../components";
 import { aboutSlides } from "../constants";
 
 const AboutSection = ({ currentIndex }) => {
   let lite = false;
   return (
     <>
-      <section className="px-5 py-[30px] lg:px-10 lg:py-[60px]" id="aboutUs">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[30px] mt-[20px] interF">
+      <section className="px-5 py-[90px] lg:px-10" id="aboutUs">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[30px] mt-[10px] interF">
           <div className="relative flex w-full h-[300px] md:h-[450px] lg:h-[564px] overflow-hidden rounded-[20px]">
             {aboutSlides.map((aboutSlide, index) => {
               const myStyle = {
