@@ -82,21 +82,21 @@ function App() {
     };
   }, []);
 
-  // React.useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoader(true);
-  //   }, 2000);
-
-  //   return () => clearTimeout(timer);
-  // }, []);
-
   React.useEffect(() => {
-    const handleLoad = () => setLoader(true);
+    const timer = setTimeout(() => {
+      setLoader(true);
+    }, 2000);
 
-    window.addEventListener("load", handleLoad);
-
-    return () => window.removeEventListener("load", handleLoad);
+    return () => clearTimeout(timer);
   }, []);
+
+  // React.useEffect(() => {
+  //   const handleLoad = () => setLoader(true);
+
+  //   window.addEventListener("load", handleLoad);
+
+  //   return () => window.removeEventListener("load", handleLoad);
+  // }, []);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
