@@ -3,7 +3,7 @@ import Button from "./Button";
 import { navLinks } from "../constants";
 import Logo from "./Logo";
 
-const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
+const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
   React.useEffect(() => {
     const preventScroll = (e) => {
       e.preventDefault();
@@ -29,6 +29,7 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight }) => {
           navToggle ? "shPStickyTest" : null
         }`}
         id="nav"
+        ref={myRef}
       >
         <Logo />
         <div className="hidden interF lg:flex">

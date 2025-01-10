@@ -48,15 +48,18 @@ const PropertiesSection = ({
             })}
           </div>
           <div className="flex flex-row justify-between w-full ">
-            <div className="flex items-center w-full gap-[2px]">
+            <div className="flex items-center w-full space-x-[2px]">
               {properties.map((property, index) => {
                 return (
                   <div
-                    className={`flex  flex-row p-[3px] md:p-[6px] border-[2px] border-[#369536] rounded-full navTrans ${
-                      currIndex === index ? "bg-[#369536]" : null
+                    className={`flex flex-row  border-[2px] border-[#369536] rounded-full navTrans ${
+                      currIndex === index ? "bg-[#369536] p-[10px]" : "p-[5px]"
                     }`}
                     // style={{ transform: `translateX(${index * 100}%)` }}
                     key={property.id}
+                    onClick={() => {
+                      setCurrIndex(index);
+                    }}
                   ></div>
                 );
               })}

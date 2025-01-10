@@ -23,6 +23,7 @@ function App() {
   const [currIndex, setCurrIndex] = React.useState(0);
   const [currentHeight, setCurrentHeight] = React.useState(84);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+  const navTarget = React.useRef(null);
 
   // React.useEffect(() => {
   //   const lenis = new Lenis();
@@ -50,7 +51,8 @@ function App() {
 
   React.useEffect(() => {
     window.addEventListener("scroll", function () {
-      const navbar = document.getElementById("nav");
+      // const navbar = document.getElementById("nav");
+      const navbar = navTarget.current;
       const scrollHeight = window.pageYOffset;
       const navHeight = navbar.getBoundingClientRect().height;
       setCurrentHeight(scrollHeight + navHeight - 2);
@@ -64,7 +66,8 @@ function App() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.getElementById("nav");
+      // const navbar = document.getElementById("nav");
+      const navbar = navTarget.current;
       const scrollHeight = window.pageYOffset;
       const navHeight = navbar.getBoundingClientRect().height;
       setCurrentHeight(scrollHeight + navHeight - 2);
@@ -203,6 +206,7 @@ function App() {
                     }}
                     navToggle={navToggle}
                     currentHeight={currentHeight}
+                    myRef={navTarget}
                   />
                   <HomeSection currentIndex={currentIndex} />
                   <div className="pt-[70px]">
