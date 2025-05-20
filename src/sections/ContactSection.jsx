@@ -16,7 +16,9 @@ const ContactSection = () => {
     () => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".accStack-1",
+          trigger: contactRefG.current,
+          start: "12% 100%",
+          end: "68% 0%",
           toggleActions: "play reverse play reverse",
           // scrub: 1,
           // markers: true,
@@ -34,7 +36,7 @@ const ContactSection = () => {
         {
           y: 50,
           opacity: 0,
-          duration: 1,
+          duration: 1.2,
           stagger: {
             amount: 1.5,
             from: "start",
@@ -48,6 +50,8 @@ const ContactSection = () => {
         duration: 1,
         scrollTrigger: {
           trigger: ".freqAQG",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -68,6 +72,8 @@ const ContactSection = () => {
         delay: 0.6,
         scrollTrigger: {
           trigger: ".btnContactG",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });

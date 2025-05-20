@@ -26,6 +26,8 @@ const ServicesSection = () => {
         x: -80,
         scrollTrigger: {
           trigger: ".serCardG-1",
+          start: "top 100%",
+          end: "buttom buttom",
           toggleActions: "play reverse play reverse",
         },
         duration: 0.9,
@@ -37,6 +39,8 @@ const ServicesSection = () => {
         y: 80,
         scrollTrigger: {
           trigger: ".serCardG-2",
+          start: "top 100%",
+          end: "buttom buttom",
           toggleActions: "play reverse play reverse",
         },
         duration: 0.9,
@@ -49,6 +53,8 @@ const ServicesSection = () => {
         x: 80,
         scrollTrigger: {
           trigger: ".serCardG-3",
+          start: "top 100%",
+          end: "buttom buttom",
           toggleActions: "play reverse play reverse",
         },
         duration: 0.9,

@@ -20,6 +20,8 @@ const FooterSection = () => {
         delay: 0.1,
         scrollTrigger: {
           trigger: ".ftFootLinkG",
+          start: "8% 100%",
+          end: "65% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -30,7 +32,9 @@ const FooterSection = () => {
         duration: 0.5,
         delay: 0.2,
         scrollTrigger: {
-          trigger: ".devCmG",
+          trigger: footRefG.current,
+          start: "40% 100%",
+          end: "40% 0%",
           toggleActions: "play reverse play reverse",
         },
       });

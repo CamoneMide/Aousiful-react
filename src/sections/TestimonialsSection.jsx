@@ -43,13 +43,15 @@ const TestimonialsSection = () => {
 
       gsap.from(".testiHeadG", {
         opacity: 0,
-        x: -30,
-        y: 30,
+        x: -20,
+        y: 20,
         duration: 0.8,
         delay: 0.1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".testiHeadG",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -62,6 +64,8 @@ const TestimonialsSection = () => {
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testNmWrkG",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -74,6 +78,8 @@ const TestimonialsSection = () => {
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testiBtnG2",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -86,6 +92,8 @@ const TestimonialsSection = () => {
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testiBtnG1",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });

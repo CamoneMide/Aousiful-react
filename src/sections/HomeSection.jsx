@@ -38,6 +38,8 @@ const HomeSection = ({ currentIndex }) => {
         },
         scrollTrigger: {
           trigger: heroG.current,
+          start: "top 80%",
+          end: "bottom top",
           toggleActions: "play reverse play none",
         },
       });
@@ -102,6 +104,9 @@ const HomeSection = ({ currentIndex }) => {
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".starContG",
+          start: "top 80%",
+          end: "bottom top",
+          // markers: true,
           toggleActions: "play reverse play reverse",
         },
       });

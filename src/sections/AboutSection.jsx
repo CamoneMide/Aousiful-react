@@ -18,8 +18,8 @@ const AboutSection = ({ currentIndex }) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: abtRefG.current,
-          start: "top 76%",
-          end: "top 20%",
+          start: "top 80%",
+          end: "top buttom",
           // scrub: true,
           // markers: true,
         },
@@ -47,6 +47,8 @@ const AboutSection = ({ currentIndex }) => {
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".abtParG2",
+          start: "top 100%",
+          end: "top buttom",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -58,6 +60,8 @@ const AboutSection = ({ currentIndex }) => {
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".abtBtnG1",
+          start: "top 100%",
+          end: "top buttom",
           toggleActions: "play reverse play reverse",
         },
       });

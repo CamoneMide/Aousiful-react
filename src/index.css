@@ -12,6 +12,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /* Fonts */
 .carterOneF {
   font-family: "Carter One", system-ui;

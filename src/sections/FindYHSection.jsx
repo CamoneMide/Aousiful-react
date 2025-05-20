@@ -20,6 +20,9 @@ const FindYHSection = () => {
         delay: 0.2,
         scrollTrigger: {
           trigger: ".headFYHG",
+          start: "0% 100%",
+          end: "100% 0%",
+
           toggleActions: "play reverse play reverse",
         },
       });
@@ -34,6 +37,8 @@ const FindYHSection = () => {
         },
         scrollTrigger: {
           trigger: splitDesText.words,
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -45,6 +50,8 @@ const FindYHSection = () => {
         delay: 0.5,
         scrollTrigger: {
           trigger: ".lrnMFYHG",
+          start: "0% 100%",
+          end: "100% 0%",
           toggleActions: "play reverse play reverse",
         },
       });

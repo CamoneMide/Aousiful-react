@@ -14,8 +14,8 @@ const SectHeadPar = ({ head, text }) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".propSecHdG",
-          start: "top 76%",
-          end: "top 20%",
+          start: "top 92%",
+          end: "top 8%",
           toggleActions: "play none play none",
         },
       });
@@ -31,7 +31,7 @@ const SectHeadPar = ({ head, text }) => {
   return (
     <>
       <div ref={sectHPpRefG} className="font-[600] interF">
-        <h2 className="text-[40px] lg:text-[44px] leading-[67px] text-[#000000] text-center propSecHdG">
+        <h2 className="text-[38px] lg:text-[44px] leading-[67px] text-[#000000] text-center propSecHdG">
           {head}
         </h2>
         <h4 className="text-[18px] lg:text-[20px] text-[#6F7B6ED6] text-center propSecTextG">
