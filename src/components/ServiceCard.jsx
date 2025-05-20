@@ -1,7 +1,13 @@
-const ServiceCard = ({ cardImgSrc, cardImgAlt, cardH2, cardText }) => {
+const ServiceCard = ({
+  cardImgSrc,
+  cardImgAlt,
+  cardH2,
+  cardText,
+  custClassG,
+}) => {
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className={`flex flex-col items-center ${custClassG}`}>
         <div>
           <img
             className="rounded-[12px] p-[45px] bg-[#369536]"

@@ -1,11 +1,48 @@
+import React from "react";
+import { BsGithub } from "react-icons/bs";
 import logoImg from "/src/assets/images/Frame 167.png";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const FooterSection = () => {
+  const footRefG = React.useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".ftFootLinkG", {
+        y: -40,
+        opacity: 0.4,
+        duration: 1,
+        delay: 0.1,
+        scrollTrigger: {
+          trigger: ".ftFootLinkG",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".devCmG", {
+        y: 30,
+        opacity: 0.4,
+        duration: 0.5,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: ".devCmG",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+    },
+    { scope: footRefG }
+  );
+
   return (
     <>
-      <footer className="footBgI">
+      <footer ref={footRefG} className="footBgI">
         <div className="px-5 pt-20 hsFootBlur lg:px-10 interF">
-          <div className="grid grid-cols-4 lg:grid-cols-12 gap-[15px] pb-5">
+          <div className="grid grid-cols-4 lg:grid-cols-12 gap-[15px] pb-5 ftFootLinkG">
             <div className="flex flex-col col-span-3">
               <h2 className="text-[28px] font-normal flex items-center carterOneF text-[#369536] leading-[67px]">
                 Aousiful
@@ -149,7 +186,8 @@ const FooterSection = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-between md:flex-row text-[16px] lg:text-[18px] font-[600] text-[#6F7B6ED6] pb-2 border-t-[2px] border-t-[#6f7b6e99] pt-5">
+
+          <div className="flex flex-col items-center justify-between md:flex-row text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6] pb-2 border-t-[2px] border-t-[#6f7b6e99] pt-5 devCmG">
             <p>Copyright &copy; 2024, Aousiful~React.</p>
             <p className="flex flex-row items-center flex-nowrap">
               <strong>Developed by</strong>
@@ -163,6 +201,14 @@ const FooterSection = () => {
                 className="text-[20px] text-[#369536] px-[2px]"
               >
                 <i className="bx bxl-linkedin"></i>
+              </a>
+              <a
+                rel="noreferrer"
+                href="https://github.com/CamoneMide"
+                target="_blank"
+                className="text-[#369536] ml-[1px]"
+              >
+                <BsGithub size={16} />
               </a>
             </p>
           </div>

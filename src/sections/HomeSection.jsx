@@ -5,8 +5,83 @@ import locationIcon from "/src/assets/icons/locationIcon.png";
 import houseIcon from "/src/assets/icons/houseIcon.png";
 import moneyIcon from "/src/assets/icons/moneyIcon.png";
 
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { progress } from "framer-motion";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
+
 const HomeSection = ({ currentIndex }) => {
+  const heroG = React.useRef(null);
   const [searchTabActive, setSearchTabActive] = React.useState(false);
+
+  useGSAP(
+    () => {
+      let splitPar = SplitText.create(".parContG", { type: "words" });
+      const tl = gsap.timeline({
+        defaults: { duration: 0.6, stagger: 0.15, ease: "power3.inOut" },
+        scrollTrigger: {
+          trigger: ".textContG",
+          toggleActions: "play reverse play none",
+        },
+      });
+
+      tl.from([".textContG"], {
+        opacity: 0,
+        x: "-70%",
+        delay: 2.1,
+      }).from([".hsSearch"], {
+        opacity: 0,
+        y: 20,
+      });
+
+      gsap.from(
+        [".circleG-5", ".circleG-4", ".circleG-3", ".circleG-2", ".circleG-1"],
+        {
+          duration: 2.5,
+          opacity: 0,
+          x: "-50%",
+          delay: 2.1,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: heroG.current,
+            toggleActions: "play reverse play reverse",
+          },
+          ease: "elastic.inOut(1,0.3)",
+        }
+      );
+
+      gsap.from([".starContG"], {
+        opacity: 0,
+        x: "50%",
+        delay: 2.2,
+        duration: 1.5,
+        ease: "elastic.inOut(1,0.3)",
+      });
+
+      gsap.from(splitPar.words, {
+        y: 25,
+        opacity: 0,
+        stagger: 0.06,
+        delay: 2.1,
+        scrollTrigger: {
+          trigger: splitPar.words,
+          toggleActions: "play reverse play none",
+        },
+      });
+
+      gsap.from([".imgContG"], {
+        opacity: 0,
+        x: "70%",
+        duration: 0.6,
+        delay: 2.1,
+      });
+    },
+    { scope: heroG }
+  );
 
   function handleTabActiveToggle() {
     setSearchTabActive(!searchTabActive);
@@ -14,13 +89,17 @@ const HomeSection = ({ currentIndex }) => {
 
   return (
     <>
-      <section className="px-5 lg:px-10 lg:py-[60px] py-10" id="home">
+      <section
+        className="px-5 lg:px-10 lg:py-[60px] py-10"
+        id="home"
+        ref={heroG}
+      >
         <div className="grid grid-cols-1 gap-[65px] lg:gap-5 lg:grid-cols-2 interF ">
-          <div className="flex flex-col">
+          <div className="flex flex-col textContG">
             <h2 className="lg:leading-[80px] lg:text-[76px] leading-[50px] text-[46px] italic font-[700] text-[#369536] flex flex-col">
               <span className="text-[#9dd144]">Find Your</span>Perfect Home
             </h2>
-            <p className="container leading-[25px] lg:leading-[35px] text-[16px] lg:text-[18px] font-[600] text-[#6F7B6ED6] py-4 pb-[30px]">
+            <p className="container leading-[25px] lg:leading-[35px] text-[16px] lg:text-[18px] font-[600] text-[#6F7B6ED6] py-4 pb-[30px] parContG">
               We offer a range of rentals tailored to fit your needs and
               lifestyle. With flexible options, fair pricing, and a friendly
               support team by your side, finding your next home is simple and
@@ -38,7 +117,7 @@ const HomeSection = ({ currentIndex }) => {
                   return (
                     <img
                       key={circleImage.id}
-                      className="absolute left-0"
+                      className={`absolute left-0 circleG-${circleImage.id}`}
                       src={circleImage.src}
                       alt={circleImage.alt}
                       style={myStyle}
@@ -46,7 +125,7 @@ const HomeSection = ({ currentIndex }) => {
                   );
                 })}
               </div>
-              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[365px] md:-ml-[520px]">
+              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[365px] md:-ml-[520px] starContG">
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
@@ -60,7 +139,7 @@ const HomeSection = ({ currentIndex }) => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden h-[300px] md:h-[450px] lg:h-[531px] w-full rounded-[20px] flex">
+          <div className="relative overflow-hidden h-[300px] md:h-[450px] lg:h-[531px] w-full rounded-[20px] flex imgContG">
             {showcaseSlides.map((showcaseSlide, index) => {
               const myStyle = {
                 transform: `translateX(-${currentIndex * 100}%)`,

@@ -2,8 +2,49 @@ import React from "react";
 import Button from "./Button";
 import { navLinks } from "../constants";
 import Logo from "./Logo";
+import { BsGithub } from "react-icons/bs";
+
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(useGSAP, ScrollToPlugin);
 
 const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
+  const tl = gsap.timeline({
+    defaults: { duration: 0.6, stagger: 0.15, ease: "power3.inOut" },
+  });
+  // const containerG = React.useRef();
+
+  useGSAP(
+    () => {
+      tl.from([".logoG"], {
+        opacity: 0,
+        x: -20,
+        delay: 2.3,
+      })
+        .from([".auth-btnG2"], {
+          opacity: 0,
+          x: 20,
+        })
+        .from([".auth-btnG1"], {
+          opacity: 0,
+          x: 30,
+        })
+        .from([".nav-itemG"], {
+          opacity: 0,
+          y: -20,
+        });
+    },
+    { scope: myRef }
+  ); // Auto-cleanup + scope targeting
+
+  function handleSectScroll(e) {
+    e.preventDefault();
+    const targetId = e.target.getAttribute("href");
+    gsap.to(window, { duration: 1, scrollTo: { y: targetId, autoKill: true } });
+  }
+
   React.useEffect(() => {
     const preventScroll = (e) => {
       e.preventDefault();
@@ -31,11 +72,15 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
         id="nav"
         ref={myRef}
       >
-        <Logo />
-        <div className="hidden interF lg:flex">
+        <div className="logoG">
+          <Logo />
+        </div>
+
+        <div className="hidden interF lg:flex nav-itemG">
           {navLinks.map((navLink) => (
             <a
               href={navLink.href}
+              onClick={(e) => handleSectScroll(e)}
               key={navLink.label}
               className="text-[16px] font-[500] px-[10px] mr-[16px] hover:mx-[8px] navLink scroll-link"
             >
@@ -45,10 +90,10 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
         </div>
         <div className="flex items-center">
           <div className="hidden interF md:flex">
-            <div className="mr-[10px]">
+            <div className="mr-[10px] auth-btnG1">
               <Button text={"Sign Up"} href={"/signUp"} lite={false} />
             </div>
-            <div className="ml-[10px]">
+            <div className="ml-[10px] auth-btnG2">
               <Button text={"Sign In"} href={"/signIn"} lite={true} />
             </div>
           </div>
@@ -65,6 +110,7 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
         </div>
       </nav>
 
+      {/* Slide In */}
       <div
         className={`interF navTog text-[#369536] pt-[30px] ${
           navToggle ? "navTog-show" : undefined
@@ -108,6 +154,14 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
                 className="text-[18px] text-[#369536] px-[4px]"
               >
                 <i className="bx bxl-linkedin"></i>
+              </a>
+              <a
+                rel="noreferrer"
+                href="https://github.com/CamoneMide"
+                target="_blank"
+                className="text-[#369536] ml-[1px]"
+              >
+                <BsGithub size={14} />
               </a>
             </p>
           </div>

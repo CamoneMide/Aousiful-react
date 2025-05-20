@@ -1,6 +1,6 @@
 import React from "react";
 
-const Accordion = ({ head, content, state }) => {
+const Accordion = ({ head, content, state, contClassG }) => {
   const [accState, setAccState] = React.useState(state);
 
   function accStateToggle() {
@@ -9,7 +9,9 @@ const Accordion = ({ head, content, state }) => {
 
   return (
     <>
-      <div className="shAccordion border-t-[1px] border-t-[#00000080]">
+      <div
+        className={`shAccordion border-t-[1px] border-t-[#00000080] ${contClassG}`}
+      >
         <div
           className="flex flex-row justify-between items-center hAccHead font-[700] py-[20px] cursor-pointer"
           onClick={accStateToggle}

@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import Nav from "./Nav";
 import Phrase from "./Phrase";
 import PropertyCard from "./PropertyCard";
+import SectHeadPar from "./SectHeadPar";
 import ServiceCard from "./ServiceCard";
 import Sidescroller from "./Sidescroller";
 import SignButton from "./SignButton";
@@ -17,6 +18,7 @@ export {
   Loader,
   Sidescroller,
   PropertyCard,
+  SectHeadPar,
   ServiceCard,
   Accordion,
   FormInput,

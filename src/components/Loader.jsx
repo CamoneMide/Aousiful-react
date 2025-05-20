@@ -12,7 +12,7 @@ const Loader = ({ loader }) => {
           <div className="w-[60px] h-[60px]">
             <img src={logoImg} alt="logo" className="w-full h-full" />
           </div>
-          <div className="bg-[transparent] border-[10px] border-[#369536] border-x-[transparent] rounded-full absolute w-[120px] h-[120px] -z-[10] loadAnimate"></div>
+          <div className="bg-[transparent] border-[10px] border-[#369536] border-x-[transparent] border-t-[transparent] rounded-full absolute w-[120px] h-[120px] -z-[10] loadAnimate"></div>
         </div>
       </div>
     </>

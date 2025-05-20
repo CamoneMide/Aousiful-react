@@ -1,5 +1,5 @@
 import { properties } from "../constants";
-import { Button, PropertyCard } from "../components";
+import { Button, PropertyCard, SectHeadPar } from "../components";
 
 const PropertiesSection = ({
   currIndex,
@@ -12,14 +12,11 @@ const PropertiesSection = ({
     <>
       <section className="bg-[#EAF4E8] py-[90px]" id="properties">
         <div className="flex flex-col items-center px-5 lg:px-10">
-          <div className="font-[600] interF">
-            <h2 className="text-[40px] lg:text-[44px] leading-[67px] text-[#000000]">
-              Featured properties
-            </h2>
-            <h4 className="text-[18px] lg:text-[20px] text-[#6F7B6ED6]">
-              Find the Rental That Fits Your Lifestyle
-            </h4>
-          </div>
+          <SectHeadPar
+            head={"Featured properties"}
+            text={"Find the Rental That Fits Your Lifestyle"}
+          />
+
           <div
             // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-[40px] mt-[60px] gap-[30px] lg:gap-[20px] w-full"
             className="relative flex flex-row mb-[30px] py-[20px] mt-[40px] lg:mt-[50px] overflow-hidden px-5 lg:px-10 w-[100%] h-[420px] navTrans"
@@ -67,7 +64,7 @@ const PropertiesSection = ({
 
             <div className="flex flex-row">
               <div
-                className="flex p-[6px] md:p-[12px] rounded-full border-[1px] border-[#00000080] text-[#00000080] text-[24px] mr-1 md:mr-2"
+                className="flex p-[6px] md:p-[12px] rounded-full border-[1px] border-[#00000080] text-[#00000080] text-[24px] mr-1 md:mr-2 cursor-pointer hover:bg-[#00000080] hover:text-[#EAF4E8] hover:border-transparent navTrans"
                 onClick={() => {
                   if (currIndex === 0) {
                     setCurrIndex(properties.length - prevIndex);
@@ -79,7 +76,7 @@ const PropertiesSection = ({
                 <i className="bx bx-left-arrow-alt"></i>
               </div>
               <div
-                className="flex p-[6px] md:p-[12px] rounded-full border-[1px] border-[#00000080] text-[#00000080] text-[24px] testimonyArrow"
+                className="flex p-[6px] md:p-[12px] rounded-full border-[1px] border-[#00000080] text-[#00000080] text-[24px] testimonyArrow cursor-pointer hover:bg-[#00000080] hover:text-[#EAF4E8] hover:border-transparent navTrans"
                 onClick={() => {
                   if (currIndex > properties.length - nextIndex) {
                     setCurrIndex(0);

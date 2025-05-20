@@ -1,5 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Loader, Nav, Sidescroller } from "./components";
 import {
   AboutSection,
@@ -13,7 +17,9 @@ import {
 } from "./sections";
 import { properties, showcaseSlides } from "./constants";
 import { SignInPage, SignUpPage } from "./pages";
-// import Lenis from "lenis";
+
+// Register GSAP plugins
+gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
 function App() {
   const [loader, setLoader] = React.useState(false);
@@ -24,53 +30,70 @@ function App() {
   const [currentHeight, setCurrentHeight] = React.useState(84);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   const navTarget = React.useRef(null);
+  const smootherWrapper = React.useRef(null);
+  const smootherContent = React.useRef(null);
 
-  // React.useEffect(() => {
-  //   const lenis = new Lenis();
+  // Initialize ScrollSmoother and animations
+  useGSAP(() => {
+    // Only initialize when loader is true and not on mobile
+    if (loader && windowWidth > 768) {
+      ScrollSmoother.create({
+        wrapper: smootherWrapper.current,
+        content: smootherContent.current,
+        smooth: 1.2,
+        effects: true,
+        normalizeScroll: true,
+        smoothTouch: 0.1,
+        ignoreMobileResize: true,
+      });
 
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
+      // Create scroll triggers for various sections
+      gsap.utils.toArray("section").forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 80%",
+          end: "bottom 20%",
+          onEnter: () => section.classList.add("active"),
+          onLeaveBack: () => section.classList.remove("active"),
+        });
+      });
 
-  //   requestAnimationFrame(raf);
+      // Special animation for the home section
+      gsap.from(".home-section", {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
 
-  //   return () => {
-  //     lenis.destroy();
-  //   };
-  // }, []);
+    return () => {
+      if (ScrollSmoother.get()) {
+        ScrollSmoother.get().kill();
+      }
+    };
+  }, [loader, windowWidth]);
 
   function handleNavToggle() {
     const rootElement = document.documentElement;
-
-    setNavToggle((prev) => {
-      return !prev;
-    });
+    setNavToggle((prev) => !prev);
     rootElement.toggleAttribute("menu-open");
+
+    // Refresh ScrollSmoother when nav is toggled
+    if (ScrollSmoother.get()) {
+      ScrollSmoother.get().refresh();
+    }
   }
 
   React.useEffect(() => {
-    window.addEventListener("scroll", function () {
-      // const navbar = document.getElementById("nav");
-      const navbar = navTarget.current;
-      const scrollHeight = window.pageYOffset;
-      const navHeight = navbar.getBoundingClientRect().height;
-      setCurrentHeight(scrollHeight + navHeight - 2);
-      if (scrollHeight > navHeight) {
-        navbar.classList.add("shPSticky");
-      } else {
-        navbar.classList.remove("shPSticky");
-      }
-    });
-  }, []);
-
-  React.useEffect(() => {
     const handleScroll = () => {
-      // const navbar = document.getElementById("nav");
       const navbar = navTarget.current;
+      if (!navbar) return;
+
       const scrollHeight = window.pageYOffset;
       const navHeight = navbar.getBoundingClientRect().height;
       setCurrentHeight(scrollHeight + navHeight - 2);
+
       if (scrollHeight > navHeight) {
         navbar.classList.add("shPSticky");
       } else {
@@ -79,136 +102,107 @@ function App() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(true);
+      // Refresh ScrollSmoother after content loads
+      setTimeout(() => {
+        if (ScrollSmoother.get()) {
+          ScrollSmoother.get().refresh();
+          ScrollTrigger.refresh();
+        }
+      }, 500);
     }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // React.useEffect(() => {
-  //   const handleLoad = () => setLoader(true);
-
-  //   window.addEventListener("load", handleLoad);
-
-  //   return () => window.removeEventListener("load", handleLoad);
-  // }, []);
-
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (currentIndex > showcaseSlides.length - 2) {
-        setCurrentIndex(0);
-      } else {
-        setCurrentIndex((prev) => {
-          return prev + 1;
-        });
-      }
+      setCurrentIndex((prev) =>
+        prev > showcaseSlides.length - 2 ? 0 : prev + 1
+      );
     }, 4000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [currentIndex]);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (abtCurIndex > showcaseSlides.length - 2) {
-        setAbtCurIndex(0);
-      } else {
-        setAbtCurIndex((prev) => {
-          return prev + 1;
-        });
-      }
+      setAbtCurIndex((prev) =>
+        prev > showcaseSlides.length - 2 ? 0 : prev + 1
+      );
     }, 5000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [abtCurIndex]);
 
   React.useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      // Refresh on resize
+      if (ScrollSmoother.get()) {
+        ScrollSmoother.get().refresh();
+        ScrollTrigger.refresh();
+      }
     };
 
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  let myWidth;
-  let prevIndex;
-  let nextIndex;
-  if (windowWidth < 640 || windowWidth === 640) {
-    myWidth = 100;
-    prevIndex = 1;
-    nextIndex = 2;
-  }
-  if (windowWidth > 640 || windowWidth === 760) {
-    myWidth = 52;
-    prevIndex = 1;
-    nextIndex = 2;
-  }
-  if (windowWidth > 868) {
-    myWidth = 26;
-    prevIndex = 3;
-    nextIndex = 4;
-  }
+  // Calculate responsive values
+  const { myWidth, prevIndex, nextIndex } = React.useMemo(() => {
+    if (windowWidth <= 640) return { myWidth: 100, prevIndex: 1, nextIndex: 2 };
+    if (windowWidth <= 868) return { myWidth: 52, prevIndex: 1, nextIndex: 2 };
+    return { myWidth: 26, prevIndex: 3, nextIndex: 4 };
+  }, [windowWidth]);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      if (currIndex > properties.length - nextIndex) {
-        setCurrIndex(0);
-      } else {
-        setCurrIndex((prev) => {
-          return prev + 1;
-        });
-      }
+      setCurrIndex((prev) =>
+        prev > properties.length - nextIndex ? 0 : prev + 1
+      );
     }, 6000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [currIndex, nextIndex]);
 
   return (
-    <>
-      <div className="bg-[#FDFDF3]">
-        <Routes>
-          <>
-            <Route path="/" element={<Loader loader={loader} />} />
-            <Route path="/signUp" element={<Loader loader={loader} />} />
-            <Route path="/signIn" element={<Loader loader={loader} />} />
-          </>
-        </Routes>
-        <div
-          className={`pageContent bg-[#FDFDF3] relative ${
-            loader ? "tPVisisble" : undefined
-          } `}
-        >
+    <div className="bg-[#FDFDF3]">
+      <Routes>
+        <Route path="/" element={<Loader loader={loader} />} />
+        <Route path="/signUp" element={<Loader loader={loader} />} />
+        <Route path="/signIn" element={<Loader loader={loader} />} />
+      </Routes>
+
+      {/* ScrollSmoother wrapper structure */}
+      <div
+        id="smooth-wrapper"
+        ref={smootherWrapper}
+        className={`pageContent bg-[#FDFDF3] relative ${
+          loader ? "tPVisisble" : ""
+        }`}
+      >
+        <div id="smooth-content" ref={smootherContent}>
           <Routes>
             <Route
               path="/"
               element={
                 <>
                   <Nav
-                    handleNavToggle={() => {
-                      handleNavToggle();
-                    }}
+                    handleNavToggle={handleNavToggle}
                     navToggle={navToggle}
                     currentHeight={currentHeight}
                     myRef={navTarget}
                   />
-                  <HomeSection currentIndex={currentIndex} />
+                  <HomeSection
+                    currentIndex={currentIndex}
+                    className="home-section"
+                  />
                   <div className="pt-[70px]">
                     <Sidescroller />
                   </div>
@@ -234,7 +228,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
