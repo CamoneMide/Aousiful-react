@@ -23,8 +23,21 @@ const HomeSection = ({ currentIndex }) => {
       let splitPar = SplitText.create(".parContG", { type: "words" });
       const tl = gsap.timeline({
         defaults: { duration: 0.6, stagger: 0.15, ease: "power3.inOut" },
+        // scrollTrigger: {
+        //   trigger: ".textContG",
+        //   toggleActions: "play reverse play none",
+        // },
+      });
+
+      const tl1 = gsap.timeline({
+        defaults: {
+          duration: 0.4,
+          // stagger: { amount: 3 },
+          ease: "power3.inOut",
+          // ease: "elastic.inOut(1,0.3)",
+        },
         scrollTrigger: {
-          trigger: ".textContG",
+          trigger: heroG.current,
           toggleActions: "play reverse play none",
         },
       });
@@ -38,28 +51,59 @@ const HomeSection = ({ currentIndex }) => {
         y: 20,
       });
 
-      gsap.from(
-        [".circleG-5", ".circleG-4", ".circleG-3", ".circleG-2", ".circleG-1"],
-        {
-          duration: 2.5,
-          opacity: 0,
-          x: "-50%",
-          delay: 2.1,
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: heroG.current,
-            toggleActions: "play reverse play reverse",
-          },
-          ease: "elastic.inOut(1,0.3)",
-        }
-      );
+      tl1
+        .to(
+          ".circleG-5",
+          // { opacity: 0, x: "-50%" },
+          {
+            opacity: 1,
+            x: "280%",
+            // delay: 2.1,
+          }
+        )
+        .to(
+          ".circleG-4",
+          // { opacity: 0, x: "-50%" },
+          {
+            opacity: 1,
+            x: "210%",
+          }
+        )
+        .to(
+          ".circleG-3",
+          // { opacity: 0, x: "-50%" },
+          {
+            opacity: 1,
+            x: "140%",
+          }
+        )
+        .to(
+          ".circleG-2",
+          // { opacity: 0, x: "-50%" },
+          {
+            opacity: 1,
+            x: "70%",
+          }
+        )
+        .to(
+          ".circleG-1",
+          // { opacity: 0, x: "-50%" },
+          {
+            opacity: 1,
+            x: 0,
+          }
+        );
 
-      gsap.from([".starContG"], {
+      gsap.from(".starContG", {
         opacity: 0,
         x: "50%",
-        delay: 2.2,
+        // delay: 2.2,
         duration: 1.5,
         ease: "elastic.inOut(1,0.3)",
+        scrollTrigger: {
+          trigger: ".starContG",
+          toggleActions: "play reverse play reverse",
+        },
       });
 
       gsap.from(splitPar.words, {
@@ -109,7 +153,8 @@ const HomeSection = ({ currentIndex }) => {
               <div className="relative flex flex-row items-center justify-start w-full">
                 {circleImages.map((circleImage, index) => {
                   const myStyle = {
-                    transform: `translateX(${index * 70}%)`,
+                    // transform: `translateX(${index * 70}%)`,
+                    opacity: 0,
                     zIndex: { index },
                     // left: `${index * 70}%`,
                   };

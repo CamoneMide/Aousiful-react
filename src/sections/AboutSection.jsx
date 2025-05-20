@@ -35,7 +35,7 @@ const AboutSection = ({ currentIndex }) => {
           y: 30,
           opacity: 0,
           autoAlpha: 0,
-          stagger: 0.4,
+          stagger: 0.3,
           ease: "power3.inOut",
         });
 
@@ -54,7 +54,7 @@ const AboutSection = ({ currentIndex }) => {
         y: 30,
         opacity: 0,
         duration: 1.5,
-        delay: 2,
+        delay: 1.8,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".abtBtnG1",

@@ -13,19 +13,48 @@ const ServicesSection = () => {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
-        defaults: { duration: 0.4, ease: "power4.inOut" },
+      // const tl = gsap.timeline({
+      //   defaults: {  },
+      //   scrollTrigger: {
+      //     trigger: ".serCardG-1",
+      //     toggleActions: "play reverse play reverse",
+      //   },
+      // });
+      gsap.from(".serCardG-1", {
+        opacity: 0,
+        y: -80,
+        x: -80,
         scrollTrigger: {
           trigger: ".serCardG-1",
-          // start: "top 74%",
-          // end: "top 40%",
           toggleActions: "play reverse play reverse",
         },
+        duration: 0.9,
+        ease: "power4.inOut",
       });
 
-      tl.from(".serCardG-1", { opacity: 0, y: 60 })
-        .from(".serCardG-2", { opacity: 0, y: 60 })
-        .from(".serCardG-3", { opacity: 0, y: 60 });
+      gsap.from(".serCardG-2", {
+        opacity: 0,
+        y: 80,
+        scrollTrigger: {
+          trigger: ".serCardG-2",
+          toggleActions: "play reverse play reverse",
+        },
+        duration: 0.9,
+        delay: 0.7,
+        ease: "power4.inOut",
+      });
+      gsap.from(".serCardG-3", {
+        opacity: 0,
+        y: 80,
+        x: 80,
+        scrollTrigger: {
+          trigger: ".serCardG-3",
+          toggleActions: "play reverse play reverse",
+        },
+        duration: 0.9,
+        delay: 1.4,
+        ease: "power4.inOut",
+      });
     },
     { scope: servRefG }
   );

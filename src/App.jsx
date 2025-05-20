@@ -17,8 +17,6 @@ import {
 } from "./sections";
 import { properties, showcaseSlides } from "./constants";
 import { SignInPage, SignUpPage } from "./pages";
-
-// Register GSAP plugins
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
 function App() {
@@ -47,24 +45,34 @@ function App() {
         ignoreMobileResize: true,
       });
 
+      // ScrollTrigger.create({
+      //   trigger: "#aboutUs",
+      //   start: "top top",
+      //   end: "bottom 10%",
+      //   markers: true,
+      //   scrub: 1,
+      //   onEnter: () => navTarget.current.classList.add("shPStickyTest"),
+      //   // onLeave: () => navTarget.current.classList.remove("shPStickyTest"),
+      // });
+
       // Create scroll triggers for various sections
-      gsap.utils.toArray("section").forEach((section) => {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top 80%",
-          end: "bottom 20%",
-          onEnter: () => section.classList.add("active"),
-          onLeaveBack: () => section.classList.remove("active"),
-        });
-      });
+      // gsap.utils.toArray("section").forEach((section) => {
+      //   ScrollTrigger.create({
+      //     trigger: section,
+      //     start: "top 80%",
+      //     end: "bottom 20%",
+      //     onEnter: () => section.classList.add("active"),
+      //     onLeaveBack: () => section.classList.remove("active"),
+      //   });
+      // });
 
       // Special animation for the home section
-      gsap.from(".home-section", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power2.out",
-      });
+      // gsap.from(".home-section", {
+      //   opacity: 0,
+      //   y: 50,
+      //   duration: 1,
+      //   ease: "power2.out",
+      // });
     }
 
     return () => {
@@ -175,6 +183,7 @@ function App() {
     <div className="bg-[#FDFDF3]">
       <Routes>
         <Route path="/" element={<Loader loader={loader} />} />
+
         <Route path="/signUp" element={<Loader loader={loader} />} />
         <Route path="/signIn" element={<Loader loader={loader} />} />
       </Routes>
@@ -187,18 +196,31 @@ function App() {
           loader ? "tPVisisble" : ""
         }`}
       >
-        <div id="smooth-content" ref={smootherContent}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Nav
+                handleNavToggle={handleNavToggle}
+                navToggle={navToggle}
+                currentHeight={currentHeight}
+                myRef={navTarget}
+              />
+            }
+          />
+        </Routes>
+        <div id="smooth-content" className="lg:pb-[85px]" ref={smootherContent}>
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <Nav
+                  {/* <Nav
                     handleNavToggle={handleNavToggle}
                     navToggle={navToggle}
                     currentHeight={currentHeight}
                     myRef={navTarget}
-                  />
+                  /> */}
                   <HomeSection
                     currentIndex={currentIndex}
                     className="home-section"
