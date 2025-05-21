@@ -32,14 +32,14 @@ const FindYHSection = () => {
         opacity: 0,
         // duration: 1,
         stagger: {
-          amount: 0.6,
+          amount: 0.4,
           from: "start",
         },
         scrollTrigger: {
           trigger: splitDesText.words,
           start: "0% 100%",
           end: "100% 0%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       });
 

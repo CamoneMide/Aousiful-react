@@ -33,7 +33,8 @@ const TestimonialsSection = () => {
       gsap.from(splitTesty.lines, {
         y: 30,
         opacity: 0,
-        stagger: 0.3,
+        stagger: { amount: 0.5 },
+        autoAlpha: 0,
         delay: 1.8,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {

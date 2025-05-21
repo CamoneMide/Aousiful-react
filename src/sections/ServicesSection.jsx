@@ -13,54 +13,37 @@ const ServicesSection = () => {
 
   useGSAP(
     () => {
-      // const tl = gsap.timeline({
-      //   defaults: {  },
-      //   scrollTrigger: {
-      //     trigger: ".serCardG-1",
-      //     toggleActions: "play reverse play reverse",
-      //   },
-      // });
-      gsap.from(".serCardG-1", {
-        opacity: 0,
-        y: -80,
-        x: -80,
+      const tl = gsap.timeline({
+        defaults: {
+          stagger: {
+            amount: 0.005,
+            from: "end",
+          },
+          ease: "power4.inOut",
+        },
         scrollTrigger: {
-          trigger: ".serCardG-1",
-          start: "top 100%",
-          end: "buttom buttom",
+          trigger: servRefG.current,
+          start: "-20% 100%",
+          end: "80% 0%",
+          // markers: true,
           toggleActions: "play reverse play reverse",
         },
-        duration: 0.9,
-        ease: "power4.inOut",
       });
 
-      gsap.from(".serCardG-2", {
+      tl.from(".serCardG-1", {
         opacity: 0,
-        y: 80,
-        scrollTrigger: {
-          trigger: ".serCardG-2",
-          start: "top 100%",
-          end: "buttom buttom",
-          toggleActions: "play reverse play reverse",
-        },
-        duration: 0.9,
-        delay: 0.7,
-        ease: "power4.inOut",
-      });
-      gsap.from(".serCardG-3", {
-        opacity: 0,
-        y: 80,
-        x: 80,
-        scrollTrigger: {
-          trigger: ".serCardG-3",
-          start: "top 100%",
-          end: "buttom buttom",
-          toggleActions: "play reverse play reverse",
-        },
-        duration: 0.9,
-        delay: 1.4,
-        ease: "power4.inOut",
-      });
+        y: -20,
+        x: -20,
+      })
+        .from(".serCardG-3", {
+          opacity: 0,
+          y: 20,
+          x: 20,
+        })
+        .from(".serCardG-2", {
+          opacity: 0,
+          y: 20,
+        });
     },
     { scope: servRefG }
   );

@@ -20,30 +20,33 @@ const AboutSection = ({ currentIndex }) => {
           trigger: abtRefG.current,
           start: "top 80%",
           end: "top buttom",
+          duration: 1,
           // scrub: true,
           // markers: true,
         },
       });
 
-      tl.from(".imgAbtG", { opacity: 0, y: -100, duration: 1 })
+      tl.from(".imgAbtG", { opacity: 0, y: -80 })
         .from(".hdTextG", {
           opacity: 0,
           y: 25,
-          duration: 1,
         })
         .from(splitApar.lines, {
           y: 30,
           opacity: 0,
           autoAlpha: 0,
-          stagger: 0.3,
+          stagger: {
+            amount: 0.6,
+            from: "start",
+          },
           ease: "power3.inOut",
         });
 
       gsap.from(".abtParG2", {
         y: -25,
         opacity: 0,
-        duration: 1.5,
-        delay: 1.5,
+        duration: 1,
+        delay: 1,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".abtParG2",
@@ -56,7 +59,7 @@ const AboutSection = ({ currentIndex }) => {
         y: 30,
         opacity: 0,
         duration: 1.5,
-        delay: 1.8,
+        delay: 1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".abtBtnG1",

@@ -36,9 +36,9 @@ const ContactSection = () => {
         {
           y: 50,
           opacity: 0,
-          duration: 1.2,
+          // duration: 1.2,
           stagger: {
-            amount: 1.5,
+            amount: 0.8,
             from: "start",
           },
         }

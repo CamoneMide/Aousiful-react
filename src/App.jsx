@@ -180,7 +180,7 @@ function App() {
   }, [currIndex, nextIndex]);
 
   return (
-    <div className="bg-[#FDFDF3]">
+    <div className="bg-[#FDFDF3] overflow-x-hidden">
       <Routes>
         <Route path="/" element={<Loader loader={loader} />} />
 
@@ -189,10 +189,11 @@ function App() {
       </Routes>
 
       {/* ScrollSmoother wrapper structure */}
+
       <div
         id="smooth-wrapper"
         ref={smootherWrapper}
-        className={`pageContent bg-[#FDFDF3] relative ${
+        className={`pageContent overflow-x-hidden bg-[#FDFDF3] relative ${
           loader ? "tPVisisble" : ""
         }`}
       >
@@ -209,7 +210,11 @@ function App() {
             }
           />
         </Routes>
-        <div id="smooth-content" className="lg:pb-[85px]" ref={smootherContent}>
+        <div
+          id="smooth-content"
+          className="lg:pb-[85px] overflow-x-hidden"
+          ref={smootherContent}
+        >
           <Routes>
             <Route
               path="/"

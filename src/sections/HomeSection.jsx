@@ -10,7 +10,6 @@ import { useGSAP } from "@gsap/react";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { progress } from "framer-motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
@@ -22,7 +21,14 @@ const HomeSection = ({ currentIndex }) => {
     () => {
       let splitPar = SplitText.create(".parContG", { type: "words" });
       const tl = gsap.timeline({
-        defaults: { duration: 0.6, stagger: 0.15, ease: "power3.inOut" },
+        defaults: {
+          // duration: 0.6,
+          stagger: {
+            amount: 0.8,
+            from: "start",
+          },
+          ease: "power3.inOut",
+        },
         // scrollTrigger: {
         //   trigger: ".textContG",
         //   toggleActions: "play reverse play none",
@@ -31,10 +37,12 @@ const HomeSection = ({ currentIndex }) => {
 
       const tl1 = gsap.timeline({
         defaults: {
-          duration: 0.4,
-          // stagger: { amount: 3 },
-          ease: "power3.inOut",
-          // ease: "elastic.inOut(1,0.3)",
+          stagger: {
+            amount: 0.07,
+            from: "start",
+          },
+          // ease: "power3.inOut",
+          ease: "elastic.inOut(1,0.3)",
         },
         scrollTrigger: {
           trigger: heroG.current,
@@ -47,7 +55,7 @@ const HomeSection = ({ currentIndex }) => {
       tl.from([".textContG"], {
         opacity: 0,
         x: "-70%",
-        delay: 2.1,
+        delay: 2,
       }).from([".hsSearch"], {
         opacity: 0,
         y: 20,
@@ -100,7 +108,7 @@ const HomeSection = ({ currentIndex }) => {
         opacity: 0,
         x: "50%",
         // delay: 2.2,
-        duration: 1.5,
+        duration: 1.2,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".starContG",
@@ -114,8 +122,11 @@ const HomeSection = ({ currentIndex }) => {
       gsap.from(splitPar.words, {
         y: 25,
         opacity: 0,
-        stagger: 0.06,
-        delay: 2.1,
+        stagger: {
+          amount: 0.45,
+          from: "start",
+        },
+        delay: 2,
         scrollTrigger: {
           trigger: splitPar.words,
           toggleActions: "play reverse play none",
@@ -125,8 +136,8 @@ const HomeSection = ({ currentIndex }) => {
       gsap.from([".imgContG"], {
         opacity: 0,
         x: "70%",
-        duration: 0.6,
-        delay: 2.1,
+        duration: 0.5,
+        delay: 2,
       });
     },
     { scope: heroG }

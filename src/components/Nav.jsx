@@ -12,7 +12,14 @@ gsap.registerPlugin(useGSAP, ScrollToPlugin);
 
 const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
   const tl = gsap.timeline({
-    defaults: { duration: 0.6, stagger: 0.15, ease: "power3.inOut" },
+    defaults: {
+      // duration: 0.6,
+      stagger: {
+        amount: 0.2,
+        from: "start",
+      },
+      ease: "power3.inOut",
+    },
   });
   // const containerG = React.useRef();
 
