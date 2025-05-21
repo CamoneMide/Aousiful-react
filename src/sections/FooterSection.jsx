@@ -16,25 +16,25 @@ const FooterSection = () => {
       gsap.from(".ftFootLinkG", {
         y: -40,
         opacity: 0.4,
-        duration: 0.8,
+        duration: 0.4,
         delay: 0.1,
         scrollTrigger: {
           trigger: ".ftFootLinkG",
-          start: "8% 100%",
-          end: "65% 0%",
+          start: "5% 100%",
+          end: "150% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
 
-      // gsap.from(".devCmG", {
-      //   y: 30,
-      //   opacity: 0.4,
-      //   duration: 0.5,
-      //   delay: 0.2,
-      //   scrollTrigger: {
-      //     trigger: footRefG.current,
-      //   },
-      // });
+      gsap.from(".devCmG", {
+        y: 25,
+        opacity: 0.5,
+        duration: 0.3,
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: footRefG.current,
+        },
+      });
     },
     { scope: footRefG }
   );

@@ -38,11 +38,11 @@ const HomeSection = ({ currentIndex }) => {
       const tl1 = gsap.timeline({
         defaults: {
           stagger: {
-            amount: 0.07,
+            amount: 0.01,
             from: "start",
           },
-          // ease: "power3.inOut",
-          ease: "elastic.inOut(1,0.3)",
+          ease: "power3.inOut",
+          // ease: "elastic.inOut(1,0.3)",
         },
         scrollTrigger: {
           trigger: heroG.current,

@@ -33,9 +33,9 @@ const TestimonialsSection = () => {
       gsap.from(splitTesty.lines, {
         y: 30,
         opacity: 0,
-        stagger: { amount: 0.5 },
+        stagger: { amount: 0.35 },
         autoAlpha: 0,
-        delay: 1.8,
+        delay: 1.2,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: splitTesty.lines,
@@ -46,13 +46,13 @@ const TestimonialsSection = () => {
         opacity: 0,
         x: -20,
         y: 20,
-        duration: 0.8,
+        duration: 0.4,
         delay: 0.1,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".testiHeadG",
-          start: "0% 100%",
-          end: "100% 0%",
+          start: "-15% 100%",
+          end: "150% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -60,13 +60,13 @@ const TestimonialsSection = () => {
       gsap.from(".testNmWrkG", {
         opacity: 0,
         y: 20,
-        duration: 1,
-        delay: 1,
+        duration: 0.5,
+        delay: 0.5,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testNmWrkG",
-          start: "0% 100%",
-          end: "100% 0%",
+          start: "-25% 100%",
+          end: "200% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -74,8 +74,8 @@ const TestimonialsSection = () => {
       gsap.from(".testiBtnG2", {
         opacity: 0,
         y: -20,
-        duration: 0.5,
-        delay: 0.5,
+        duration: 0.3,
+        delay: 0.2,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testiBtnG2",
@@ -88,8 +88,8 @@ const TestimonialsSection = () => {
       gsap.from(".testiBtnG1", {
         opacity: 0,
         y: -20,
-        duration: 0.5,
-        delay: 1,
+        duration: 0.3,
+        delay: 0.4,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testiBtnG1",
@@ -101,9 +101,9 @@ const TestimonialsSection = () => {
 
       gsap.from(".testimonyImgCont", {
         opacity: 0,
-        x: "60%",
-        duration: 1.5,
-        delay: 1.2,
+        x: "50%",
+        duration: 0.5,
+        delay: 0.5,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".testimonyImgCont",

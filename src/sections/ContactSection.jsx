@@ -17,8 +17,8 @@ const ContactSection = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: contactRefG.current,
-          start: "12% 100%",
-          end: "68% 0%",
+          start: "10% 100%",
+          end: "95% 0%",
           toggleActions: "play reverse play reverse",
           // scrub: 1,
           // markers: true,
@@ -38,20 +38,20 @@ const ContactSection = () => {
           opacity: 0,
           // duration: 1.2,
           stagger: {
-            amount: 0.8,
+            amount: 0.5,
             from: "start",
           },
         }
       );
 
       gsap.from(".freqAQG", {
-        y: -50,
+        y: -30,
         opacity: 0,
-        duration: 1,
+        duration: 0.5,
         scrollTrigger: {
           trigger: ".freqAQG",
-          start: "0% 100%",
-          end: "100% 0%",
+          start: "-10% 100%",
+          end: "200% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -59,7 +59,7 @@ const ContactSection = () => {
       gsap.from(".imgContactG", {
         x: "-80%",
         opacity: 0,
-        duration: 1,
+        duration: 0.6,
         scrollTrigger: {
           trigger: ".imgContactG",
         },
@@ -68,12 +68,12 @@ const ContactSection = () => {
       gsap.from(".btnContactG", {
         y: "-120%",
         opacity: 0,
-        duration: 1,
-        delay: 0.6,
+        duration: 0.4,
+        delay: 0.3,
         scrollTrigger: {
           trigger: ".btnContactG",
           start: "0% 100%",
-          end: "100% 0%",
+          end: "280% 0%",
           toggleActions: "play reverse play reverse",
         },
       });

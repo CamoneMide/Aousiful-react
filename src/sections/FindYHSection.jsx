@@ -16,13 +16,12 @@ const FindYHSection = () => {
       gsap.from(".headFYHG", {
         y: -50,
         opacity: 0,
-        duration: 1,
+        duration: 0.4,
         delay: 0.2,
         scrollTrigger: {
           trigger: ".headFYHG",
-          start: "0% 100%",
-          end: "100% 0%",
-
+          start: "5% 100%",
+          end: "250% 0%",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -46,13 +45,13 @@ const FindYHSection = () => {
       gsap.from(".lrnMFYHG", {
         y: 50,
         opacity: 0,
-        duration: 1,
-        delay: 0.5,
+        duration: 0.4,
+        delay: 0.3,
         scrollTrigger: {
           trigger: ".lrnMFYHG",
           start: "0% 100%",
           end: "100% 0%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       });
     },

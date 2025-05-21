@@ -16,11 +16,18 @@ const AboutSection = ({ currentIndex }) => {
     () => {
       let splitApar = SplitText.create(".abtParG1", { type: "lines" });
       const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.inOut",
+          stagger: {
+            amount: 0.6,
+            from: "start",
+          },
+        },
         scrollTrigger: {
           trigger: abtRefG.current,
           start: "top 80%",
           end: "top buttom",
-          duration: 1,
+          // duration: 1,
           // scrub: true,
           // markers: true,
         },
@@ -36,7 +43,7 @@ const AboutSection = ({ currentIndex }) => {
           opacity: 0,
           autoAlpha: 0,
           stagger: {
-            amount: 0.6,
+            amount: 0.4,
             from: "start",
           },
           ease: "power3.inOut",
@@ -45,8 +52,8 @@ const AboutSection = ({ currentIndex }) => {
       gsap.from(".abtParG2", {
         y: -25,
         opacity: 0,
-        duration: 1,
-        delay: 1,
+        duration: 0.8,
+        delay: 0.8,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".abtParG2",
@@ -58,8 +65,8 @@ const AboutSection = ({ currentIndex }) => {
       gsap.from(".abtBtnG1", {
         y: 30,
         opacity: 0,
-        duration: 1.5,
-        delay: 1,
+        duration: 1,
+        delay: 0.5,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".abtBtnG1",
