@@ -13,11 +13,11 @@ gsap.registerPlugin(useGSAP, ScrollToPlugin);
 const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
   const tl = gsap.timeline({
     defaults: {
-      // duration: 0.4,
-      stagger: {
-        amount: 0.1,
-        from: "start",
-      },
+      duration: 0.4,
+      // stagger: {
+      //   amount: 0.1,
+      //   from: "start",
+      // },
       ease: "power3.inOut",
     },
   });

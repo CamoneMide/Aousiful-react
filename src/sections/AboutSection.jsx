@@ -52,8 +52,8 @@ const AboutSection = ({ currentIndex }) => {
       gsap.from(".abtParG2", {
         y: -25,
         opacity: 0,
-        duration: 0.8,
-        delay: 0.8,
+        duration: 0.6,
+        delay: 0.6,
         ease: "elastic.inOut(1,0.3)",
         scrollTrigger: {
           trigger: ".abtParG2",
@@ -65,8 +65,8 @@ const AboutSection = ({ currentIndex }) => {
       gsap.from(".abtBtnG1", {
         y: 30,
         opacity: 0,
-        duration: 1,
-        delay: 0.5,
+        duration: 0.6,
+        delay: 0.3,
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".abtBtnG1",
