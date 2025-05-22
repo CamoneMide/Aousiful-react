@@ -18,7 +18,7 @@ const ContactSection = () => {
         scrollTrigger: {
           trigger: contactRefG.current,
           start: "10% 100%",
-          end: "95% 0%",
+          end: "180% 0%",
           toggleActions: "play reverse play reverse",
           // scrub: 1,
           // markers: true,
@@ -38,7 +38,7 @@ const ContactSection = () => {
           opacity: 0,
           // duration: 1.2,
           stagger: {
-            amount: 0.5,
+            amount: 0.4,
             from: "start",
           },
         }
@@ -47,12 +47,11 @@ const ContactSection = () => {
       gsap.from(".freqAQG", {
         y: -30,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.4,
         scrollTrigger: {
-          trigger: ".freqAQG",
-          start: "-10% 100%",
-          end: "200% 0%",
-          toggleActions: "play reverse play reverse",
+          trigger: contactRefG.current,
+          start: "8% 100%",
+          end: "90% 0%",
         },
       });
 
@@ -74,7 +73,6 @@ const ContactSection = () => {
           trigger: ".btnContactG",
           start: "0% 100%",
           end: "280% 0%",
-          toggleActions: "play reverse play reverse",
         },
       });
     },

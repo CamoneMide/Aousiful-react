@@ -37,9 +37,10 @@ const HomeSection = ({ currentIndex }) => {
 
       const tl1 = gsap.timeline({
         defaults: {
+          duration: 0.2,
           stagger: {
-            amount: 0.01,
-            from: "start",
+            amount: 0.001,
+            // from: "start",
           },
           ease: "power3.inOut",
           // ease: "elastic.inOut(1,0.3)",
@@ -62,42 +63,41 @@ const HomeSection = ({ currentIndex }) => {
       });
 
       tl1
-        .to(
+        .fromTo(
           ".circleG-5",
-          // { opacity: 0, x: "-50%" },
+          { opacity: 0, x: "-50%" },
           {
             opacity: 1,
             x: "280%",
-            // delay: 2.1,
           }
         )
-        .to(
+        .fromTo(
           ".circleG-4",
-          // { opacity: 0, x: "-50%" },
+          { opacity: 0, x: "-50%" },
           {
             opacity: 1,
             x: "210%",
           }
         )
-        .to(
+        .fromTo(
           ".circleG-3",
-          // { opacity: 0, x: "-50%" },
+          { opacity: 0, x: "-50%" },
           {
             opacity: 1,
             x: "140%",
           }
         )
-        .to(
+        .fromTo(
           ".circleG-2",
-          // { opacity: 0, x: "-50%" },
+          { opacity: 0, x: "-50%" },
           {
             opacity: 1,
             x: "70%",
           }
         )
-        .to(
+        .fromTo(
           ".circleG-1",
-          // { opacity: 0, x: "-50%" },
+          { opacity: 0, x: "-50%" },
           {
             opacity: 1,
             x: 0,

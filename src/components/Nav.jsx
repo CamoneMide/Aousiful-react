@@ -13,9 +13,9 @@ gsap.registerPlugin(useGSAP, ScrollToPlugin);
 const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
   const tl = gsap.timeline({
     defaults: {
-      // duration: 0.6,
+      // duration: 0.4,
       stagger: {
-        amount: 0.2,
+        amount: 0.1,
         from: "start",
       },
       ease: "power3.inOut",
@@ -28,7 +28,7 @@ const Nav = ({ handleNavToggle, navToggle, currentHeight, myRef }) => {
       tl.from([".logoG"], {
         opacity: 0,
         x: -20,
-        delay: 2.3,
+        delay: 2.1,
       })
         .from([".auth-btnG2"], {
           opacity: 0,

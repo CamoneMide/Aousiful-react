@@ -22,7 +22,6 @@ const FindYHSection = () => {
           trigger: ".headFYHG",
           start: "5% 100%",
           end: "250% 0%",
-          toggleActions: "play reverse play reverse",
         },
       });
 

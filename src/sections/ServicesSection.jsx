@@ -15,11 +15,12 @@ const ServicesSection = () => {
     () => {
       const tl = gsap.timeline({
         defaults: {
+          duration: 0.3,
+          ease: "power4.inOut",
           stagger: {
             amount: 0.005,
-            from: "end",
+            // from: "end",
           },
-          ease: "power4.inOut",
         },
         scrollTrigger: {
           trigger: servRefG.current,
@@ -32,17 +33,17 @@ const ServicesSection = () => {
 
       tl.from(".serCardG-1", {
         opacity: 0,
-        y: -20,
-        x: -20,
+        y: -30,
+        // x: -20,
       })
-        .from(".serCardG-3", {
-          opacity: 0,
-          y: 20,
-          x: 20,
-        })
         .from(".serCardG-2", {
           opacity: 0,
-          y: 20,
+          y: 30,
+          // x: 20,
+        })
+        .from(".serCardG-3", {
+          opacity: 0,
+          y: 30,
         });
     },
     { scope: servRefG }

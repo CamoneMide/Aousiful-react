@@ -43,7 +43,7 @@ const AboutSection = ({ currentIndex }) => {
           opacity: 0,
           autoAlpha: 0,
           stagger: {
-            amount: 0.4,
+            amount: 0.3,
             from: "start",
           },
           ease: "power3.inOut",
