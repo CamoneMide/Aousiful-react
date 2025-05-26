@@ -51,13 +51,13 @@ const FooterSection = () => {
                   <img width="35" height="35" src={logoImg} alt="logo" />
                 </span>
               </h2>
-              <p className="leading-[30px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]">
+              <p className="leading-[30px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]">
                 With a variety of properties and support at every step, finding
                 the right rental is simpler than ever with us.
               </p>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Terms & Conditions
               </a>
@@ -68,31 +68,31 @@ const FooterSection = () => {
               </h2>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 About Us
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Mission & Vision
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Careers
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Blog
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Privacy Policy
               </a>
@@ -103,25 +103,25 @@ const FooterSection = () => {
               </h2>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Featured Properties
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 New Listings
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Neighbourhood Guides
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Rental Types (e.g., Apartment)
               </a>
@@ -132,25 +132,25 @@ const FooterSection = () => {
               </h2>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 FAQs
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Support Centre
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Maintenance
               </a>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Feedback
               </a>
@@ -161,7 +161,7 @@ const FooterSection = () => {
               </h2>
               <a
                 href=""
-                className="leading-[35px] text-[14px] lg:text-[16px] font-[600] text-[#6F7B6ED6]"
+                className="leading-[35px] text-[14px] lg:text-[16px] font-[500] text-[#6F7B6ED6]"
               >
                 Aous@gmail.com
               </a>

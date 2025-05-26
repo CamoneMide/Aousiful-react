@@ -19,7 +19,7 @@ const ServiceCard = ({
           <h2 className="text-[21px] leading-[67px] text-[#000000] text-center">
             {cardH2}
           </h2>
-          <p className="text-[18px] leading-[33px] text-[#6F7B6ED6] text-center">
+          <p className="text-[18px] leading-[33px] text-[#6F7B6ED6] text-center font-[500]">
             {cardText}
           </p>
         </div>

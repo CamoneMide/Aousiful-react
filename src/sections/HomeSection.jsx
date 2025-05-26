@@ -159,7 +159,7 @@ const HomeSection = ({ currentIndex }) => {
             <h2 className="lg:leading-[80px] lg:text-[76px] leading-[50px] text-[46px] italic font-[700] text-[#369536] flex flex-col">
               <span className="text-[#9dd144]">Find Your</span>Perfect Home
             </h2>
-            <p className="container leading-[25px] lg:leading-[35px] text-[16px] lg:text-[18px] font-[600] text-[#6F7B6ED6] py-4 pb-[30px] parContG">
+            <p className="container leading-[25px] lg:leading-[35px] text-[16px] lg:text-[18px] font-[500] text-[#6F7B6ED6] py-4 pb-[30px] parContG">
               We offer a range of rentals tailored to fit your needs and
               lifestyle. With flexible options, fair pricing, and a friendly
               support team by your side, finding your next home is simple and
@@ -186,7 +186,7 @@ const HomeSection = ({ currentIndex }) => {
                   );
                 })}
               </div>
-              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[365px] md:-ml-[520px] starContG">
+              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[30vw] md:-ml-[520px] starContG">
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
@@ -194,7 +194,7 @@ const HomeSection = ({ currentIndex }) => {
                 <i className="bx bxs-star-half"></i>
               </div>
 
-              <p className="ml-[10px] leading-[67px] text-[13px] font-[700] text-[#969191] hidden md:flex">
+              <p className="ml-[10px] leading-[67px] text-[13px] font-[600] text-[#969191] hidden md:flex">
                 4.8 (2.2k review)
               </p>
             </div>

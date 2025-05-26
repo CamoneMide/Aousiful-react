@@ -111,14 +111,14 @@ const AboutSection = ({ currentIndex }) => {
               <span className="text-[#9dd144]">Your</span>New Adventure Starts
               Here
             </h2>
-            <p className=" text-[16px] leading-[25px] lg:leading-[30px] lg:text-[18px] font-[600] text-[#6F7B6ED6] py-4 abtParG1">
+            <p className=" text-[16px] leading-[25px] lg:leading-[30px] lg:text-[18px] font-[500] text-[#6F7B6ED6] py-4 abtParG1">
               Immerse yourself in vibrant neighbourhoods and serene suburbs. Our
               properties offer the perfect blend of convenience and
               tranquillity. From bustling city centres to peaceful countryside
               retreats, we have the ideal space for you. Find your dream home
               and start living the life you deserve.
             </p>
-            <p className=" text-[16px] leading-[25px] lg:leading-[30px] lg:text-[18px] font-[600] text-[#6F7B6ED6] pb-6 abtParG2">
+            <p className=" text-[16px] leading-[25px] lg:leading-[30px] lg:text-[18px] font-[500] text-[#6F7B6ED6] pb-6 abtParG2">
               Find your new home with ease. We are here to provide you with the
               very best options and best of the experience.
             </p>

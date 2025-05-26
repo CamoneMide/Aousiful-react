@@ -34,7 +34,7 @@ const SectHeadPar = ({ head, text }) => {
         <h2 className="text-[38px] lg:text-[44px] leading-[67px] text-[#000000] text-center propSecHdG">
           {head}
         </h2>
-        <h4 className="text-[18px] lg:text-[20px] text-[#6F7B6ED6] text-center propSecTextG">
+        <h4 className="text-[18px] lg:text-[20px] text-[#6F7B6ED6] text-center propSecTextG font-[500]">
           {text}
         </h4>
       </div>
