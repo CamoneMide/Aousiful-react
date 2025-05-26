@@ -146,7 +146,7 @@ const TestimonialsSection = () => {
             key={testimonials[crrIndex].id}
           >
             <div className="lg:col-span-2">
-              <h4 className="text-[14px] md:text-[16px] lg:text-[20px] text-[#6F7B6ED6] leading-[25px] lg:leading-[38px] pb-[30px] testimonyText font-[500]">
+              <h4 className="text-[14px] md:text-[16px] lg:text-[20px] text-[#6F7B6ED6]  pb-[30px] testimonyText font-[500]">
                 {testimonials[crrIndex].text}
               </h4>
               <div className="testNmWrkG">
