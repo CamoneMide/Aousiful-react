@@ -186,7 +186,7 @@ const HomeSection = ({ currentIndex }) => {
                   );
                 })}
               </div>
-              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[30vw] md:-ml-[520px] starContG">
+              <div className="text-[#FF8C00] hidden md:flex flex-row text-[22px] lg:-ml-[26vw] md:-ml-[520px] starContG">
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
                 <i className="bx bxs-star"></i>
